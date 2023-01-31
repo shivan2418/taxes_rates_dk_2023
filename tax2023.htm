@@ -1,0 +1,3081 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- saved from url=(0032)https://tax.dk/beregn/skat23.htm -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>
+TAX.DK skat &amp; afgift - Skatteberegning 2023
+</title>
+
+<!-- 2/5-2021: Beregningsgrundlag for jobfradrag og beskæftigelsesfradrag medtager indbetalinger på arbejdsgiveradm. pensionsordning                -->
+<!-- 28/3-2021: Ekstra pensionsfradrag, jf. ligningslovens § 9 L                                                                                    -->
+<!-- Der beregnes ikke ekstra beskæftigelsesfradrag for enlige, jf. ligningslovens § 9 J, stk. 4                                                    -->
+<!-- Der beregnes ikke udligningskat, jf. lov 723/2010, § 5																							-->
+
+<!-- Der beregnes ikke kompensensation efter lov 459/2009 § 1, nr. 32																				-->
+<!-- rettelser:																																		-->
+<!-- 11/11-2013: Indeholdelse jf. kildeskattelovens § 65: 27%, jf. lov 459/2009  																	-->
+<!-- 21/11-2012: Satser for beforderingsfradrag for 2013 indføjet                                                                                   -->
+<!-- 27/12-2011: PSL § 8 a, stk. 1                                                                                                                  -->
+<!-- 13/12-2011: Satser for befordringsfradrag for 2012, som vedtaget af Skatterådet på møde den 13/12-2011                                         -->
+<!-- Lov 554/2011 § 2 med virkning fra indkomståret 2012, jf. lovens § 4, stk. 5.                                                                   -->
+<!-- 18/11-2010: L 77, 2010-11 (kompensation for kommunale skatteforhøjelser; satser for befordringsfradrag 2011                                    -->
+<!-- 18/11-2010: L 77, 2010-11 (kompensation for kommunale skatteforhøjelser; satser for befordringsfradrag 2011                                    -->
+<!-- 10/11-2010: PSL § 7, stk. 5, 2. pkt., jf. pensionsbeskatningslovens § 16, stk. 1                                                               -->
+<!-- 9/11-2009: Kommuneskatteprocenter for 2010. Kilde: Skatteministeriet 9/11-2009                                                                 -->
+<!-- 14/9-2009: bundfradrag_positiv_nettokapitalindkomst: Tilføjet bundfradrag_positiv_nettokapitalindkomst_konstant for at undgå fordoblinger      -->
+<!--            ved gentagne beregninger for ægtefæller                                                                                             -->
+<!-- 10/9-2009: Tilføjet begrænsning for indbetaling på ratepension og ophørende pensioner med løbende udbetalinger 								-->
+<!-- 28/8-2009: Bundfradrag for topskat er 389.900 kr., jfr. lov 459/2009, cfr. aftale mellem regeringen og Dansk Folkeparti 						-->
+
+<style type="text/css">
+<!--
+td {font-family: Verdana, sans-serif; font-size: 12px; }
+.overskrift1 {font-size: 44px; color: black; }
+.overskrift2 {font-size: 12px; }
+.overskrift3 {font-size: 10px; }
+.version {color: silver; }
+a {color: blue; }
+a:hover {color: red; }
+.tilbage {font-size: 10px; }
+.knapper {font-size: 10px; }
+.hoejre {text-align: right; }
+.petit {font-size: 10px; }
+.udgiver {font-size: 11px; color: gray; }
+.nummerering {color: lightgrey; font-weight: bold; }
+-->
+</style>
+
+<script language="JavaScript" type="text/javascript">
+<!-- gem for gamle browsere
+var skatteorakel = false // angiver om skatteorakel - sættes til true nedenfor, hvis skatteorakel
+
+version = "11/12-2022"
+
+// NB! det forudsættes, at personlig indkomst er positiv
+
+// Kan først anvendes fra indkomståret 2004
+indkomstaar = 23;
+
+// indkomstårsafhængige konstanter
+
+AMBATPprc23 = 8.0; // (8% + 0%) 2023
+
+bundskatprc23 = 12.09; // 2023
+
+sundhedsbidragprc23 = 0; // 2023
+
+topskatprc23 = 15.0; // 2023
+
+topskatgraense23 = 568900; // 2023
+
+skatteloftprc23 = 52.07; // 2023
+
+skatteloftprc_positivkapitalindkomst23 = 42; // 2023
+
+personfradragUnge23 = 38400; // 2023
+
+personfradrag23 = 48000; // 2023
+
+maksimumKapitalpensionsfradrag23 = 0; // 2023
+
+bundfradrag_positiv_nettokapitalindkomst_konstant = 48800; // 2023
+
+underAktieskatprc = 27.0; // 2023
+overAktieskatprc = 42.0; // 2023
+
+aktieskatgrundbeloeb23 = 58900; // 2023
+
+bundgraenseLoenmodtagerfradrag23 = 6700; // 2023
+
+maksimumBeskaeftigelsesfradrag23 = 45600; // 2023 (midlertidigt forhoejet i 2022/2023
+beskaeftigelsesfradragsprocent23 = 0.1065; // 2023, jf. LL § 9 J, stk. 2
+
+bundgraense_jobfradrag = 208700; // 2023
+jobfradragsprocent = 0.045; // 2023
+maksimalt_jobfradrag = 2700; // 2023, jf. LL § 9 K, stk. 2
+
+nedslagNegativNettokapitalindkomstprc23 = 8.0; // 2023, jf. PSL § 11, stk. 2
+
+maksimaltEkstraPensionsfradrag = 77900 ; // 2023, jf. LL § 9 L
+ekstraPensionsfradragprocent15aarEllerMindre = 0.32 // 2023, jf. LL § 9 L, stk. 2
+ekstraPensionsfradragprocent1MereEnd5aar = 0.12 // 2023, jf. LL § 9 L, stk. 2
+
+if (indkomstaar == 23) {
+	AMBprc = AMBATPprc23
+
+	bundskatprc = bundskatprc23
+	sundhedsbidragprc = sundhedsbidragprc23
+	topskatprc = topskatprc23
+	topskatgraense = topskatgraense23
+	skatteloftprc = skatteloftprc23
+	skatteloftprc_positivkapitalindkomst=skatteloftprc_positivkapitalindkomst23
+	personfradragUnge = personfradragUnge23
+	personfradrag = personfradrag23
+
+	maksimumKapitalpensionsfradrag = maksimumKapitalpensionsfradrag23
+
+	maksimumBeskaeftigelsesfradrag = maksimumBeskaeftigelsesfradrag23
+
+	aktieskatgrundbeloeb = aktieskatgrundbeloeb23
+
+
+	bundgraenseLoenmodtagerfradrag = bundgraenseLoenmodtagerfradrag23
+	beskaeftigelsesfradragsprocent = beskaeftigelsesfradragsprocent23
+
+	nedslagNegativNettokapitalindkomstprc = nedslagNegativNettokapitalindkomstprc23
+} else {
+	alert ("Indkomstår ikke implementeret!")
+}
+
+ejendomsvaerdigraense = 3040000 // reguleres ikke fra og med 2002
+ejendomsvaerdiskatprcUnder = 0.92 // 01 - identisk 02/03/04/05/06/07/08/09 2021/22/23: 0,92%
+ejendomsvaerdiskatprcOver = 3 // 01 - identisk 02/03/04/05/06/07/08/09
+
+// variabler der kun bruges ved skatteberegning
+kommunenavn = "ingen"
+kommuneprc = 0
+kirkeprc = 0
+grundskyldpromille = 0
+grundskyldpromilleSommerhus = 0
+
+// variabler der både bruges ved indkomstopgørelse og skatteberegning
+MloenFoerAMB = 0
+KloenFoerAMB = 0
+
+MAMB = 0 // arbejdsmarkedsbidrag skatteyder
+KAMB = 0 // arbejdsmarkedsbidrag ægtefælle
+
+MpersonligIndkomst = 0
+MindskudKapitalpension = 0
+MarbejdsgiverIndskudKapitalpension = 0
+Mkapitalindkomst = 0
+MligningsmaessigeFradrag = 0
+MskattepligtigIndkomst = 0
+Maktieindkomst = 0
+
+KpersonligIndkomst = 0
+KindskudKapitalpension = 0
+KarbejdsgiverIndskudKapitalpension = 0
+Kkapitalindkomst = 0
+KligningsmaessigeFradrag = 0
+KskattepligtigIndkomst = 0
+Kaktieindkomst = 0
+
+// globale, da de skal overføres som globale
+var Mtopskat
+var skatIalt
+
+var fatalFejl = false // angiver om der er en fejl, som betyder at SkatteOrakel bør undlade at give resultat
+
+function indkomstopgoerelse(form) {
+	// omregning af personlig indkomst før AMB til efter AMB
+	MloenFoerAMB = parse(form.MloenFoerAMB1.value)
+	KloenFoerAMB = parse(form.KloenFoerAMB1.value)
+
+	MAMB = MloenFoerAMB * AMBprc / 100
+	KAMB = KloenFoerAMB * AMBprc / 100
+
+	form.MAMB1.value = tilDanskHeltal(afrund(MAMB))
+	form.KAMB1.value = tilDanskHeltal(afrund(KAMB))
+
+	Mloen = MloenFoerAMB - MAMB
+	Kloen = KloenFoerAMB - KAMB
+
+	// Start: regn ud, om skatteyders indskud på kapitalpension overstiger maksimumgrænse
+	// Er det tilfældet nedsættes indskudet på privattegnet kapitalpension
+	// - og medregnes ikke ved beregning af topskat - da heller ikke bortseelsesret for arbejdsgiveradministreret ordning
+	MindskudKapitalpension = parse(form.Mkapital.value)
+
+	MarbejdsgiverIndskudKapitalpension = parse(form.MarbejdsgiverIndskudKapitalpension.value)
+
+	overskridelse = (MindskudKapitalpension + MarbejdsgiverIndskudKapitalpension)
+			- maksimumKapitalpensionsfradrag
+	if (overskridelse > 0) {
+		alert("Der kan maksimalt fradrages " + tilDanskHeltal(maksimumKapitalpensionsfradrag) + " kr. ved indbetaling på kapitalpensioner!")
+
+		if (MindskudKapitalpension > overskridelse) {
+			MfradragsberettigetIndskudKapitalpension = MindskudKapitalpension
+				- overskridelse
+		} else {
+			MfradragsberettigetIndskudKapitalpension = 0
+		}
+
+		form.Mkapital.value = MfradragsberettigetIndskudKapitalpension
+	} else {
+		MfradragsberettigetIndskudKapitalpension = MindskudKapitalpension
+	}
+
+	// Det overskydende beløb medregnes ikke ved beregning af topskat, jfr. personskatteloven § 7, stk. 1
+	MindskudKapitalpension = MfradragsberettigetIndskudKapitalpension
+	// Slut: regn ud, om indskud på kapitalpension overstiger maksimumgrænse
+
+	// personlig indkomst
+	MpersonligIndkomst =
+		Mloen 
+		+ parse(form.MandenPersonlig.value)
+		- MfradragsberettigetIndskudKapitalpension
+		- parse(form.Mrate.value)
+
+	form.MpersonligIndkomst.value = tilDanskHeltal(afrund(MpersonligIndkomst))
+
+	// Start: regn ud, om ægtefælles indskud på kapitalpension overstiger maksimumgrænse
+	// Er det tilfældet nedsættes indskudet på privattegnet kapitalpension
+	// - og medregnes ikke ved beregning af topskat - da heller ikke bortseelsesret for arbejdsgiveradministreret ordning
+	KindskudKapitalpension = parse(form.Kkapital.value)
+	KarbejdsgiverIndskudKapitalpension = parse(form.KarbejdsgiverIndskudKapitalpension.value)										
+
+	overskridelse = (KindskudKapitalpension + KarbejdsgiverIndskudKapitalpension)
+			- maksimumKapitalpensionsfradrag
+	if (overskridelse > 0) {
+		alert("Der kan maksimalt fradrages " + tilDanskHeltal(maksimumKapitalpensionsfradrag) + " kr. ved indbetaling på kapitalpensioner!")
+
+		if (KindskudKapitalpension > overskridelse) {
+			KfradragsberettigetIndskudKapitalpension = KindskudKapitalpension
+				- overskridelse
+		} else {
+			KfradragsberettigetIndskudKapitalpension = 0
+		}
+
+		form.Kkapital.value = KfradragsberettigetIndskudKapitalpension
+	} else {
+		KfradragsberettigetIndskudKapitalpension = KindskudKapitalpension
+	}
+
+	// Det overskydende beløb medregnes ikke ved beregning af topskat, jfr. personskatteloven § 7, stk. 1
+	KindskudKapitalpension = KfradragsberettigetIndskudKapitalpension
+	// Slut: regn ud, om indskud på kapitalpension overstiger maksimumgrænse
+
+	KpersonligIndkomst =
+		Kloen 
+		+ parse(form.KandenPersonlig.value)
+		- KfradragsberettigetIndskudKapitalpension
+		- parse(form.Krate.value)
+
+	form.KpersonligIndkomst.value = tilDanskHeltal(afrund(KpersonligIndkomst))
+
+	// kapitalindkomst
+	Mkapitalindkomst =
+		parse(form.Mrenteind.value)
+		+ parse(form.MandenKapital.value)
+		- parse(form.Mrenteud.value)
+
+	form.Mkapitalindkomst.value = tilDanskHeltal(afrund(Mkapitalindkomst))
+
+	Kkapitalindkomst =
+		parse(form.Krenteind.value)
+		+ parse(form.KandenKapital.value)
+		- parse(form.Krenteud.value)
+
+	form.Kkapitalindkomst.value = tilDanskHeltal(afrund(Kkapitalindkomst))
+
+	// ligningsmæssige fradrag
+
+	// Opgørelse af beskæftigelsesfradrag (fra indkomståret 2004)
+	// Jfr. lov nr. 442 af 10. juni 2003
+
+	// Ændret 17/12-2020 fra : Mbeskaeftigelsesfradragsgrundlag = Math.max(0,parse(form.MloenFoerAMB1.value)-parse(form.Mkapital.value)-parse(form.Mrate.value))
+
+	Mbeskaeftigelsesfradragsgrundlag = Math.max(0,parse(form.MloenFoerAMB1.value)+parse(form.MrateArbejdsgiveradm.value)) // 2/5-2021
+	Mbeskaeftigelsesfradrag = Math.min(Mbeskaeftigelsesfradragsgrundlag * beskaeftigelsesfradragsprocent,maksimumBeskaeftigelsesfradrag)
+
+	form.Mbeskaeftigelsesfradrag.value = tilDanskHeltal(afrund(Mbeskaeftigelsesfradrag))
+
+	// Ændret 17/12-2020 fra : Kbeskaeftigelsesfradragsgrundlag = Math.max(0,parse(form.KloenFoerAMB1.value)-parse(form.Kkapital.value)-parse(form.Krate.value))
+
+	Kbeskaeftigelsesfradragsgrundlag = Math.max(0,parse(form.KloenFoerAMB1.value)+parse(form.KrateArbejdsgiveradm.value)) // 2/5-2021
+	Kbeskaeftigelsesfradrag = Math.min(Kbeskaeftigelsesfradragsgrundlag * beskaeftigelsesfradragsprocent,maksimumBeskaeftigelsesfradrag)
+
+	form.Kbeskaeftigelsesfradrag.value = tilDanskHeltal(afrund(Kbeskaeftigelsesfradrag))
+
+	// Opgørelse af jobfradrag
+	// Grundlaget udgør det samme som for beskæftigelsesfradraget
+	
+	Mjobfradragsgrundlag = Math.max(0,Mbeskaeftigelsesfradragsgrundlag - bundgraense_jobfradrag)
+	Mjobfradrag = Math.min(Mjobfradragsgrundlag * jobfradragsprocent,maksimalt_jobfradrag)
+
+	form.Mjobfradrag.value = tilDanskHeltal(afrund(Mjobfradrag))
+
+	Kjobfradragsgrundlag = Math.max(0,Kbeskaeftigelsesfradragsgrundlag - bundgraense_jobfradrag)
+	Kjobfradrag = Math.min(Kjobfradragsgrundlag * jobfradragsprocent,maksimalt_jobfradrag)
+
+	form.Kjobfradrag.value = tilDanskHeltal(afrund(Kjobfradrag))
+
+	// Opgørelse af ekstra pensionsfradrag
+	MmereEnd15AarFolkepension = form.MmereEnd15AarFolkepension[0].checked
+	KmereEnd15AarFolkepension = form.KmereEnd15AarFolkepension[0].checked
+	
+	MekstraPensionsfradraggrundlag = Math.min(maksimaltEkstraPensionsfradrag,parse(form.MrateArbejdsgiveradm.value)+parse(form.Mrate.value))
+
+	if (MmereEnd15AarFolkepension) {
+		MekstraPensionsfradrag = ekstraPensionsfradragprocent1MereEnd5aar * MekstraPensionsfradraggrundlag;
+	} else {
+		MekstraPensionsfradrag = ekstraPensionsfradragprocent15aarEllerMindre * MekstraPensionsfradraggrundlag;
+	}
+
+	form.MekstraPensionsfradrag.value = tilDanskHeltal(afrund(MekstraPensionsfradrag))
+
+	KekstraPensionsfradraggrundlag = Math.min(maksimaltEkstraPensionsfradrag,parse(form.KrateArbejdsgiveradm.value)+parse(form.Krate.value))
+
+	if (KmereEnd15AarFolkepension) {
+		KekstraPensionsfradrag = ekstraPensionsfradragprocent1MereEnd5aar * KekstraPensionsfradraggrundlag;
+	} else {
+		KekstraPensionsfradrag = ekstraPensionsfradragprocent15aarEllerMindre * KekstraPensionsfradraggrundlag;
+	}
+
+	form.KekstraPensionsfradrag.value = tilDanskHeltal(afrund(KekstraPensionsfradrag))
+	
+	// Opgørelse af ligningsmæssige fradrag
+	
+	MligningsmaessigeFradrag =
+		parse(form.Mbefordring.value)
+		+ parse(form.Mfagligt.value)
+		+ parse(form.MoevrigeLoenmodtagerudgifter.value)
+		+ parse(form.Maegtefaellebidrag.value)
+		+ parse(form.MandreLignings.value)
+		+ Mbeskaeftigelsesfradrag
+		+ Mjobfradrag
+		+ MekstraPensionsfradrag
+
+	form.MligningsmaessigeFradrag.value = tilDanskHeltal(afrund(MligningsmaessigeFradrag))
+
+	KligningsmaessigeFradrag =
+		parse(form.Kbefordring.value)
+		+ parse(form.Kfagligt.value)
+		+ parse(form.KoevrigeLoenmodtagerudgifter.value)
+		+ parse(form.Kaegtefaellebidrag.value)
+		+ parse(form.KandreLignings.value)
+		+ Kbeskaeftigelsesfradrag
+		+ Kjobfradrag
+		+ KekstraPensionsfradrag
+
+	form.KligningsmaessigeFradrag.value = tilDanskHeltal(afrund(KligningsmaessigeFradrag))
+	
+	// skattepligtig indkomst
+	MskattepligtigIndkomst =
+		MpersonligIndkomst
+		+ Mkapitalindkomst
+		- MligningsmaessigeFradrag
+
+	form.MskattepligtigIndkomst.value = tilDanskHeltal(afrund(MskattepligtigIndkomst))
+
+	KskattepligtigIndkomst =
+		KpersonligIndkomst
+		+ Kkapitalindkomst
+		- KligningsmaessigeFradrag
+
+	form.KskattepligtigIndkomst.value = tilDanskHeltal(afrund(KskattepligtigIndkomst))
+
+	// *************
+	// Aktieindkomst
+	// *************
+	Maktieindkomst =
+		parse(form.M61.value)
+		+ parse(form.M64.value)
+
+	form.Maktieindkomst.value = tilDanskHeltal(afrund(Maktieindkomst))
+
+	Kaktieindkomst =
+		parse(form.K61.value)
+		+ parse(form.K64.value)
+
+	form.Kaktieindkomst.value = tilDanskHeltal(afrund(Kaktieindkomst))
+}
+
+function skatteberegning(form) {
+fatalFejl = false // Hvis sand: Resultatside vises ikke. Variablen er global
+
+// her ved man, at alle oplysninger er (forsøgt) indtastet
+// Der er allerede på et tidligere tidspunkt givet advarsel
+
+if (skatteorakel) {
+	// Disse fejlmeddelser vises ikke, hvis blot skatteberegning
+	if (form.Munder18[0].checked && (form.boern15_17[0].checked || form.boern18_25[0].checked || form.boern26[0].checked)) {
+		alert('Du har angivet, at du er under 18 år, men har børn over 15 år!')
+		fatalFejl = true
+	}
+}
+
+// der tillades ikke negativ skattepligtig eller personlig indkomst
+if (MpersonligIndkomst < 0 ||
+	KpersonligIndkomst < 0) {
+		alert("Det forudsættes, at den personlige indkomst er positiv!")
+		fatalFejl = true
+} else {
+
+	gift = form.civilstand[0].checked
+	// Hvis der er angivet en indkomst under "ægtefælle", er man nok gift -> giv advarsel
+	if (!gift && KskattepligtigIndkomst != 0) {
+		alert("Du har angivet en indkomst for din ægtefælle, men samtidigt oplyst, at du ikke er gift!")
+		fatalFejl = true
+	}
+
+	if (!gift && Kaktieindkomst != 0) {
+		alert("Du har angivet en aktieindkomst for din ægtefælle, men samtidigt oplyst, at du ikke er gift!")
+		fatalFejl = true
+	}
+
+/*
+	// Hvis man har angivet, at man er gift, men ægtefællen ikke har nogen skattepligtig indkomst,
+	// er der nok noget galt -> giv advarsel
+	if (gift && KskattepligtigIndkomst == 0) {
+		alert("Muligvis mangler der oplysninger! Du har angivet, at du er gift, men din ægtefælles skattepligtige indkomst er 0!")
+	}
+*/
+
+	Munder18 = form.Munder18[0].checked
+	Kunder18 = form.Kunder18[0].checked
+	MmedlemFolkekirke = form.MmedlemFolkekirke[0].checked
+	KmedlemFolkekirke = form.KmedlemFolkekirke[0].checked
+	
+	i = form.kommune.options.selectedIndex
+	kommune(form.kommune.options[i].value,"helaarsbolig")
+
+	// Find grundskyldpromille sommerhus
+	i = form.kommuneSommerhus.options.selectedIndex
+	kommune(form.kommuneSommerhus.options[i].value,"sommerhus")
+
+	// Fælles for kommunal skat og bundskat
+	var Mpersonfradrag
+	var Kpersonfradrag
+
+	if (Munder18) {	
+		Mpersonfradrag = personfradragUnge
+	} else {
+		Mpersonfradrag = personfradrag
+	}
+
+	if (Kunder18) {	
+		Kpersonfradrag = personfradragUnge
+	} else {
+		Kpersonfradrag = personfradrag
+	}
+
+	////////////////////////////
+	// Kommunal skat
+	////////////////////////////
+	// jfr. lovbek. nr. 770 af 13. oktober 1999
+
+	var MkommSkatprc
+	var KkommSkatprc
+
+	var MkommSkat
+	var KkommSkat
+	var kommSkatIalt // samlet kommunal skat (for ægtefæller = sum)
+
+	if (MmedlemFolkekirke) {
+		MkommSkatprc = kommuneprc + sundhedsbidragprc + kirkeprc
+	} else {
+		MkommSkatprc = kommuneprc + sundhedsbidragprc
+	}
+
+	if (KmedlemFolkekirke) {
+		KkommSkatprc = kommuneprc + sundhedsbidragprc + kirkeprc
+	} else {
+		KkommSkatprc = kommuneprc + sundhedsbidragprc
+	}
+
+	var MberegningsgrundlagKomm
+	var KberegningsgrundlagKomm
+
+	form.MpersonfradragKomm.value = tilDanskHeltal((-1) * afrund(Mpersonfradrag))
+
+	if (gift) {
+		form.KpersonfradragKomm.value = tilDanskHeltal((-1) * afrund(Kpersonfradrag))
+	} else {
+		form.KpersonfradragKomm.value = "ugift"
+	}
+
+	form.MskattepligtigIndkomstKomm.value = tilDanskHeltal(afrund(MskattepligtigIndkomst))
+
+	MberegningsgrundlagKomm = MskattepligtigIndkomst - Mpersonfradrag
+	form.MberegningsgrundlagKomm.value = tilDanskHeltal(afrund(MberegningsgrundlagKomm))
+
+	MkommSkat = MberegningsgrundlagKomm * (MkommSkatprc / 100)
+	form.MkommSkat.value = tilDanskHeltal(afrund(MkommSkat))
+
+	form.MkommSkatprc.value = afrund2dec(MkommSkatprc)
+	if (gift) {
+		form.KkommSkatprc.value = afrund2dec(KkommSkatprc)
+	
+		form.KskattepligtigIndkomstKomm.value = tilDanskHeltal(afrund(KskattepligtigIndkomst))
+
+		KberegningsgrundlagKomm = KskattepligtigIndkomst - Kpersonfradrag
+		form.KberegningsgrundlagKomm.value = tilDanskHeltal(afrund(KberegningsgrundlagKomm))
+
+		KkommSkat = KberegningsgrundlagKomm * (KkommSkatprc / 100)
+		form.KkommSkat.value = tilDanskHeltal(afrund(KkommSkat))
+
+		// evt. negativ skat modregnes først i ægtefællens skat, jfr. PSL § 13, stk. 2 og PSL § 10, stk. 3
+		kommSkatIalt = MkommSkat + KkommSkat
+	} else {
+		form.KkommSkatprc.value = "ugift"
+
+		form.KskattepligtigIndkomstKomm.value = "ugift"
+		form.KberegningsgrundlagKomm.value = "ugift"
+		form.KkommSkat.value = "ugift"
+
+		kommSkatIalt = MkommSkat
+	}
+
+	// evt. negativ skat modregnes i øvrige skatter, jfr. PSL §§ 9, stk. 1, og 13, stk. 1
+	form.kommSkatIalt.value = tilDanskHeltal(afrund(kommSkatIalt))
+
+	// kommunal skat [slut]
+
+	///////////////////
+	// Bundskat
+	///////////////////
+	// Der tages ikke højde for § 25a og § 27a i personskatteloven, jfr. lovbek. nr. 918 af 4/10-2000
+	// Det betyder, at skatten vil kunne være lavere end beregnet her
+
+	form.bundskatprc.value = bundskatprc
+
+	var MberegningsgrundlagBund
+	var KberegningsgrundlagBund
+
+	var MpositivKapitalindkomstBund
+	var KpositivKapitalindkomstBund
+
+	var Mbundskat
+	var Kbundskat
+	var bundskatIalt // samlet bundskat
+
+	form.MpersonligIndkomstBund.value = tilDanskHeltal(afrund(MpersonligIndkomst))
+	form.MpersonfradragBund.value = tilDanskHeltal((-1) * afrund(Mpersonfradrag))
+
+	if (gift) {
+		form.KpersonligIndkomstBund.value = tilDanskHeltal(afrund(KpersonligIndkomst))
+
+		if (Mkapitalindkomst >= 0) {
+			if (Kkapitalindkomst >= 0) {
+				// både skatteyder og ægtefælle har positiv kapitalindkomst
+				MpositivKapitalindkomstBund = Mkapitalindkomst
+				KpositivKapitalindkomstBund = Kkapitalindkomst
+			} else {
+				// ægtefælle har negativ kapitalindkomst -> modregning, jfr. PSL § 6, stk. 4
+				MpositivKapitalindkomstBund = pos(Mkapitalindkomst + Kkapitalindkomst)
+				KpositivKapitalindkomstBund = 0
+			}
+		} else {
+			// skatteyders kapitalindkomst er negativ
+			if (Kkapitalindkomst >= 0) {
+				// ægtefælles kapitalindkomst positiv -> modregning, jfr. PSL § 6, stk. 4
+
+				MpositivKapitalindkomstBund = 0
+				KpositivKapitalindkomstBund = pos(Mkapitalindkomst + Kkapitalindkomst)
+							
+			} else {
+				// ægtefælle har også negativ kapitalindkomst 
+				MpositivKapitalindkomstBund = 0
+				KpositivKapitalindkomstBund = 0
+			}
+		}
+
+		form.MpositivKapitalindkomstBund.value = tilDanskHeltal(afrund(MpositivKapitalindkomstBund))
+		form.KpositivKapitalindkomstBund.value = tilDanskHeltal(afrund(KpositivKapitalindkomstBund))
+
+		form.KpersonfradragBund.value = tilDanskHeltal((-1) * afrund(Kpersonfradrag))
+
+		MberegningsgrundlagBund =
+			MpersonligIndkomst
+			+ MpositivKapitalindkomstBund
+			- Mpersonfradrag
+
+		KberegningsgrundlagBund =
+			KpersonligIndkomst
+			+ KpositivKapitalindkomstBund
+			- Kpersonfradrag
+
+		form.MberegningsgrundlagBund.value = tilDanskHeltal(afrund(MberegningsgrundlagBund))
+		form.KberegningsgrundlagBund.value = tilDanskHeltal(afrund(KberegningsgrundlagBund))
+
+		Mbundskat = MberegningsgrundlagBund * (bundskatprc / 100)
+		form.Mbundskat.value = tilDanskHeltal(afrund(Mbundskat))
+
+		Kbundskat = KberegningsgrundlagBund * (bundskatprc / 100)
+		form.Kbundskat.value = tilDanskHeltal(afrund(Kbundskat))
+
+		bundskatIalt = Mbundskat + Kbundskat
+	} else { // ugift
+		MpositivKapitalindkomstBund = pos(Mkapitalindkomst)
+
+		form.MpositivKapitalindkomstBund.value = tilDanskHeltal(afrund(MpositivKapitalindkomstBund))
+
+		MberegningsgrundlagBund =
+			MpersonligIndkomst
+			+ MpositivKapitalindkomstBund
+			- Mpersonfradrag
+
+		form.MberegningsgrundlagBund.value = tilDanskHeltal(afrund(MberegningsgrundlagBund))
+
+		Mbundskat = MberegningsgrundlagBund * (bundskatprc / 100)
+		form.Mbundskat.value = tilDanskHeltal(afrund(Mbundskat))
+
+		form.KpersonligIndkomstBund.value = "ugift"
+		form.KpositivKapitalindkomstBund.value = "ugift"
+		form.KpersonfradragBund.value = "ugift"
+		form.KberegningsgrundlagBund.value = "ugift"
+		form.Kbundskat.value = "ugift"
+	
+		bundskatIalt = Mbundskat
+	}
+
+	// evt. negativ skat modregnes i øvrige skatter, jfr. PSL §§ 9, stk. 1, og 13, stk. 1
+	form.bundskatIalt.value = tilDanskHeltal(afrund(bundskatIalt))
+
+	// bundskat [slut]
+
+	////////////////
+	// Topskat
+	////////////////
+	
+	// Der beregnes topskat af
+	// a. Personlig indkomst + indskud på kapitalpension
+	// b. Positiv nettokapitalindkomst
+
+	// Topskatteprocent for personlig indkomst + indskud på kapitalpension reduceres, hvis det skrå skatteloft er passeret, jfr. PSL § 19
+	var samletprc = kommuneprc + sundhedsbidragprc + bundskatprc + topskatprc
+	var topskatprcReduceret
+
+	if (samletprc > skatteloftprc) {
+		topskatprcReduceret = topskatprc - forskelToDecimaler(samletprc,skatteloftprc) // Fra 2008 med 2 decimaler
+	} else {
+		topskatprcReduceret = topskatprc
+	}
+
+	form.topskatprc_personlig_indkomst.value = topskatprcReduceret
+
+	// Topskatteprocent for positiv nettokapitalindkomst reduceres, hvis det skrå skatteloft for positiv nettokapitalindkomst er passeret
+	var samletprc = kommuneprc + sundhedsbidragprc + bundskatprc + topskatprc
+	var topskatprcReduceret_positivkapitalindkomst
+
+	if (samletprc > skatteloftprc_positivkapitalindkomst) {
+		topskatprcReduceret_positivkapitalindkomst = topskatprc - forskelToDecimaler(samletprc,skatteloftprc_positivkapitalindkomst)
+	} else {
+		topskatprcReduceret_positivkapitalindkomst = topskatprc
+	}
+
+	form.topskatprc_positivkapitalindkomst.value = afrund2dec(topskatprcReduceret_positivkapitalindkomst)
+
+	var MpositivKapitalindkomstTop
+	var KpositivKapitalindkomstTop
+	
+	var samlPositivKapitalindkomst
+
+	var MberegningsgrundlagTop_personlig_indkomst
+	var KberegningsgrundlagTop_personlig_indkomst
+
+	var MberegningsgrundlagTop_nettokapitalindkomst
+	var KberegningsgrundlagTop_nettokapitalindkomst
+
+	// Er gjort til global variabel: var Mtopskat
+	var Ktopskat
+	var topskatIalt // samlet topskat (for ægtefæller = sum); kan ikke modregnes som bundskat 
+
+	form.MpersonligIndkomstTop.value = tilDanskHeltal(afrund(MpersonligIndkomst))
+	form.MindskudKapitalpension.value = tilDanskHeltal(afrund(MindskudKapitalpension))
+	form.MarbejdsgiverIndskudKapitalpension1.value = tilDanskHeltal(afrund(MarbejdsgiverIndskudKapitalpension))
+	form.topskatgraense1.value = tilDanskHeltal((-1) * afrund(topskatgraense))
+
+	MpersonligIndkomstogIndskudPension = MpersonligIndkomst
+		+ MindskudKapitalpension
+		+ MarbejdsgiverIndskudKapitalpension;
+
+	if (gift) {
+		form.KpersonligIndkomstTop.value = tilDanskHeltal(afrund(KpersonligIndkomst))
+		form.KindskudKapitalpension.value = tilDanskHeltal(afrund(KindskudKapitalpension))
+		form.KarbejdsgiverIndskudKapitalpension1.value = tilDanskHeltal(afrund(KarbejdsgiverIndskudKapitalpension))
+
+		KpersonligIndkomstogIndskudPension = KpersonligIndkomst
+			+ KindskudKapitalpension
+			+ KarbejdsgiverIndskudKapitalpension;
+
+		if (Mkapitalindkomst >= 0) {
+			if (Kkapitalindkomst >= 0) {
+				// både skatteyder og ægtefælle har positiv kapitalindkomst
+				MpositivKapitalindkomstTop = Mkapitalindkomst
+				KpositivKapitalindkomstTop = Kkapitalindkomst
+			} else {
+				// ægtefælle har negativ kapitalindkomst -> modregning, jfr. PSL § 6 a, stk. 3
+				MpositivKapitalindkomstTop = pos(Mkapitalindkomst + Kkapitalindkomst)
+				KpositivKapitalindkomstTop = 0
+			}
+		} else {
+			// skatteyders kapitalindkomst er negativ
+			if (Kkapitalindkomst >= 0) {
+				// ægtefælles kapitalindkomst positiv -> modregning, jfr. PSL § 6 a, stk. 3
+				MpositivKapitalindkomstTop = 0
+				KpositivKapitalindkomstTop = pos(Mkapitalindkomst + Kkapitalindkomst)
+			} else {
+				// ægtefælle har også negativ kapitalindkomst 
+				MpositivKapitalindkomstTop = 0
+				KpositivKapitalindkomstTop = 0
+			}
+		}
+
+		samlPositivKapitalindkomst = MpositivKapitalindkomstTop + KpositivKapitalindkomstTop
+
+		// Bundfradrag for positiv nettokapitalindkomst
+		bundfradrag_positiv_nettokapitalindkomst = 2 * bundfradrag_positiv_nettokapitalindkomst_konstant;
+
+		if (samlPositivKapitalindkomst < bundfradrag_positiv_nettokapitalindkomst) {
+			samlPositivKapitalindkomst=0;
+		} else {
+			samlPositivKapitalindkomst -= bundfradrag_positiv_nettokapitalindkomst;
+		}
+
+		if (MpersonligIndkomstogIndskudPension >= KpersonligIndkomstogIndskudPension) { // 10/11-2010
+			// beregning på toppen af skatteyderens indkomst
+			MpositivKapitalindkomstTop = samlPositivKapitalindkomst
+			KpositivKapitalindkomstTop = 0
+
+			form.MpositivKapitalindkomstTop.value = tilDanskHeltal(afrund(MpositivKapitalindkomstTop))
+			form.KpositivKapitalindkomstTop.value = ""
+
+			if (MpersonligIndkomstogIndskudPension >= topskatgraense) {
+				topskatgraense_positivkapitalindkomst = 0;
+			} else {
+				topskatgraense_positivkapitalindkomst = topskatgraense - MpersonligIndkomstogIndskudPension;
+			}
+
+			form.topskatgraense3.value = tilDanskHeltal((-1) * afrund(topskatgraense_positivkapitalindkomst));
+			form.topskatgraense4.value = "";
+
+			// B. Beregning af topskat af positiv nettokapitalindkomst
+			MberegningsgrundlagTop_positivkapitalindkomst = MpositivKapitalindkomstTop
+				- topskatgraense_positivkapitalindkomst;
+
+			form.MberegningsgrundlagTop_positivkapitalindkomst.value = tilDanskHeltal(afrund(MberegningsgrundlagTop_positivkapitalindkomst))
+			form.KberegningsgrundlagTop_positivkapitalindkomst.value = "";
+
+			Mtopskat_positivkapitalindkomst = MberegningsgrundlagTop_positivkapitalindkomst * (topskatprcReduceret_positivkapitalindkomst / 100)
+			Ktopskat_positivkapitalindkomst = 0;
+
+			form.Mtopskat_positivkapitalindkomst.value = tilDanskHeltal(afrund(Mtopskat_positivkapitalindkomst))
+
+			form.Ktopskat_positivkapitalindkomst.value = "";
+		} else {
+			// beregning på toppen af ægtefællens indkomst
+			KpositivKapitalindkomstTop = samlPositivKapitalindkomst
+			MpositivKapitalindkomstTop = 0
+
+			form.MpositivKapitalindkomstTop.value = ""
+			form.KpositivKapitalindkomstTop.value = tilDanskHeltal(afrund(KpositivKapitalindkomstTop))
+
+			if (KpersonligIndkomstogIndskudPension >= topskatgraense) {
+				topskatgraense_positivkapitalindkomst = 0;
+			} else {
+				topskatgraense_positivkapitalindkomst = topskatgraense - KpersonligIndkomstogIndskudPension;
+			}
+
+			form.topskatgraense3.value = "";
+			form.topskatgraense4.value = tilDanskHeltal((-1) * afrund(topskatgraense_positivkapitalindkomst));
+
+			// B. Beregning af topskat af positiv nettokapitalindkomst
+			KberegningsgrundlagTop_positivkapitalindkomst = KpositivKapitalindkomstTop
+				- topskatgraense_positivkapitalindkomst;
+
+			form.MberegningsgrundlagTop_positivkapitalindkomst.value = "";
+			form.KberegningsgrundlagTop_positivkapitalindkomst.value = tilDanskHeltal(afrund(KberegningsgrundlagTop_positivkapitalindkomst))
+
+			form.Mtopskat_positivkapitalindkomst.value = "";
+
+			Mtopskat_positivkapitalindkomst = 0;
+			Ktopskat_positivkapitalindkomst = KberegningsgrundlagTop_positivkapitalindkomst * (topskatprcReduceret_positivkapitalindkomst / 100)
+
+			form.Ktopskat_positivkapitalindkomst.value = tilDanskHeltal(afrund(Ktopskat_positivkapitalindkomst))
+		}
+
+		form.topskatgraense1.value = tilDanskHeltal((-1) * afrund(topskatgraense))
+		form.topskatgraense2.value = tilDanskHeltal((-1) * afrund(topskatgraense))
+
+		// A. Beregning af topskat af personlig indkomst og indskud på kapitalpension
+
+		MberegningsgrundlagTop_personlig_indkomst = MpersonligIndkomstogIndskudPension
+			- topskatgraense
+
+		KberegningsgrundlagTop_personlig_indkomst = KpersonligIndkomstogIndskudPension
+			- topskatgraense
+
+		form.MberegningsgrundlagTop_personlig_indkomst.value = tilDanskHeltal(afrund(MberegningsgrundlagTop_personlig_indkomst))
+		form.KberegningsgrundlagTop_personlig_indkomst.value = tilDanskHeltal(afrund(KberegningsgrundlagTop_personlig_indkomst))
+
+		Mtopskat_personlig_indkomst = MberegningsgrundlagTop_personlig_indkomst * (topskatprcReduceret / 100)
+		form.Mtopskat_personlig_indkomst.value = tilDanskHeltal(afrund(Mtopskat_personlig_indkomst))
+
+		Ktopskat_personlig_indkomst = KberegningsgrundlagTop_personlig_indkomst * (topskatprcReduceret / 100)
+		form.Ktopskat_personlig_indkomst.value = tilDanskHeltal(afrund(Ktopskat_personlig_indkomst))
+
+
+		// der kan ikke overføres uudnyttet bundfradrag som ved mellemskat		
+		topskatIalt_personlig_indkomst = pos(Mtopskat_personlig_indkomst) + pos(Ktopskat_personlig_indkomst)
+		topskatIalt_positivkapitalindkomst = pos(Mtopskat_positivkapitalindkomst) + pos(Ktopskat_positivkapitalindkomst)
+
+		topskatIalt = topskatIalt_personlig_indkomst + topskatIalt_positivkapitalindkomst
+
+	} else { // ugift
+		MpositivKapitalindkomstTop = pos(Mkapitalindkomst)
+
+		// Bundfradrag for positiv nettokapitalindkomst
+		bundfradrag_positiv_nettokapitalindkomst = bundfradrag_positiv_nettokapitalindkomst_konstant;
+
+		if (MpositivKapitalindkomstTop < bundfradrag_positiv_nettokapitalindkomst) {
+			MpositivKapitalindkomstTop=0;
+		} else {
+			MpositivKapitalindkomstTop -= bundfradrag_positiv_nettokapitalindkomst;
+		}
+
+		form.MpositivKapitalindkomstTop.value = tilDanskHeltal(afrund(MpositivKapitalindkomstTop))
+
+		// A. Beregning af topskat af personlig indkomst og indskud på kapitalpension
+
+		MberegningsgrundlagTop_personlig_indkomst = MpersonligIndkomstogIndskudPension
+			- topskatgraense
+
+		form.MberegningsgrundlagTop_personlig_indkomst.value = tilDanskHeltal(afrund(MberegningsgrundlagTop_personlig_indkomst))
+		form.KberegningsgrundlagTop_personlig_indkomst.value = "ugift"
+
+		Mtopskat_personlig_indkomst = MberegningsgrundlagTop_personlig_indkomst * (topskatprcReduceret / 100)
+		form.Mtopskat_personlig_indkomst.value = tilDanskHeltal(afrund(Mtopskat_personlig_indkomst))
+		form.Ktopskat_personlig_indkomst.value = "ugift"
+
+		// B. Beregning af topskat af positiv nettokapitalindkomst
+
+		if (MpersonligIndkomstogIndskudPension >= topskatgraense) {
+			topskatgraense_positivkapitalindkomst = 0;
+		} else {
+			topskatgraense_positivkapitalindkomst = topskatgraense - MpersonligIndkomstogIndskudPension;
+		}
+
+		form.topskatgraense3.value = tilDanskHeltal((-1) * afrund(topskatgraense_positivkapitalindkomst));
+		form.topskatgraense4.value = "ugift"
+
+		MberegningsgrundlagTop_positivkapitalindkomst = MpositivKapitalindkomstTop
+			- topskatgraense_positivkapitalindkomst;
+
+		form.MberegningsgrundlagTop_positivkapitalindkomst.value = tilDanskHeltal(afrund(MberegningsgrundlagTop_positivkapitalindkomst))
+		form.KberegningsgrundlagTop_positivkapitalindkomst.value = "ugift";
+
+		Mtopskat_positivkapitalindkomst = MberegningsgrundlagTop_positivkapitalindkomst * (topskatprcReduceret_positivkapitalindkomst / 100)
+		Ktopskat_positivkapitalindkomst = 0;
+
+		form.Mtopskat_positivkapitalindkomst.value = tilDanskHeltal(afrund(Mtopskat_positivkapitalindkomst))
+		form.Ktopskat_positivkapitalindkomst.value = "";
+
+		form.KpersonligIndkomstTop.value = "ugift"
+		form.KindskudKapitalpension.value = "ugift"
+		form.KarbejdsgiverIndskudKapitalpension1.value = "ugift"
+		form.KpositivKapitalindkomstTop.value = "ugift"
+		form.topskatgraense2.value = "ugift"
+
+		form.KberegningsgrundlagTop_positivkapitalindkomst.value = "ugift"
+		form.Ktopskat_positivkapitalindkomst.value = "ugift"
+
+		topskatIalt_personlig_indkomst = pos(Mtopskat_personlig_indkomst);
+		topskatIalt_positivkapitalindkomst = pos(Mtopskat_positivkapitalindkomst);
+
+		topskatIalt = topskatIalt_personlig_indkomst + topskatIalt_positivkapitalindkomst
+	}
+
+
+	form.bundfradrag_positiv_nettokapitalindkomst.value = tilDanskHeltal(bundfradrag_positiv_nettokapitalindkomst);
+	form.topskatIalt_personlig_indkomst.value = tilDanskHeltal(afrund(topskatIalt_personlig_indkomst))
+	form.topskatIalt_positivkapitalindkomst.value = tilDanskHeltal(afrund(topskatIalt_positivkapitalindkomst))
+
+	// skat kan kun blive positiv (i.e. kan ikke modregnes)
+
+	form.topskatIalt.value = tilDanskHeltal(afrund(topskatIalt))
+
+	// topskat [slut]
+
+	///////////////////////////////////
+	// Ejendomsværdiskat
+	///////////////////////////////////
+	var ejendomsvaerdiskatIalt	
+
+	// Helårsbolig
+	var ejendomsvaerdi 
+	var ejendomsvaerdiskatUnder 
+	var ejendomsvaerdiskatOver 
+	var ejendomsvaerdiskatHelaarsbolig
+
+	var nedslagsprc
+	var nedslag
+
+	var parcelhus = form.bolig[2].checked
+	var ejerlejlighed = form.bolig[3].checked
+	var senestJuli1998 = form.senestJuli1998[0].checked
+
+	if (parcelhus || ejerlejlighed) {
+
+		ejendomsvaerdi = parse(form.angivetEjendomsvaerdi.value)
+		form.ejendomsvaerdi.value = tilDanskHeltal(afrund(ejendomsvaerdi))
+
+		if (ejendomsvaerdi <= ejendomsvaerdigraense) {
+			ejendomsvaerdiskatUnder = ejendomsvaerdi * (ejendomsvaerdiskatprcUnder / 100)
+			form.ejendomsvaerdiskatUnder.value = tilDanskHeltal(afrund(ejendomsvaerdiskatUnder))
+	
+			ejendomsvaerdiskatOver = 0	
+			form.ejendomsvaerdiskatOver.value = ""
+		} else {
+			// under grænsen
+			ejendomsvaerdiskatUnder = ejendomsvaerdigraense * (ejendomsvaerdiskatprcUnder / 100)
+			form.ejendomsvaerdiskatUnder.value = tilDanskHeltal(afrund(ejendomsvaerdiskatUnder))
+	
+			// over grænsen
+			ejendomsvaerdiskatOver = (ejendomsvaerdi - ejendomsvaerdigraense)
+				* (ejendomsvaerdiskatprcOver / 100)
+			form.ejendomsvaerdiskatOver.value = tilDanskHeltal(afrund(ejendomsvaerdiskatOver))
+		}
+
+		nedslag = 0
+		if (senestJuli1998) {
+			// Jfr. ejendomsværdiskatteloven § 6
+			nedslagsprc = 0.2
+
+			nedslag = ejendomsvaerdi * (nedslagsprc / 100)
+
+			if (parcelhus) {
+				// nedslag yderligere 0.4 %, dog max. 1.200 kr., jfr. ejendomsværdiskatteloven § 7
+				nedslagsprc = 0.4
+
+				nedslag += Math.min(ejendomsvaerdi * (nedslagsprc / 100), 1200)
+			}
+		} else {
+			nedslagsprc = 0
+			nedslag = 0
+		}
+
+		form.nedslag.value = tilDanskHeltal(afrund(nedslag))
+
+		ejendomsvaerdiskatHelaarsbolig = ejendomsvaerdiskatUnder
+			+ ejendomsvaerdiskatOver
+			- nedslag
+
+		form.ejendomsvaerdiskatHelaarsbolig.value = tilDanskHeltal(afrund(ejendomsvaerdiskatHelaarsbolig))
+	
+	} else {
+		if (parse(form.angivetEjendomsvaerdi.value) > 0) {
+			alert("Du har angivet en ejendomsværdi og samtidigt oplyst, at du har en lejebolig/andelsbolig!")
+			fatalFejl = true
+		}
+
+		form.ejendomsvaerdi.value = "leje/andelsbolig"
+		form.ejendomsvaerdiskatUnder.value = ""
+		form.ejendomsvaerdiskatOver.value = ""
+
+		ejendomsvaerdiskatHelaarsbolig = 0
+		form.ejendomsvaerdiskatHelaarsbolig.value = ejendomsvaerdiskatHelaarsbolig
+	}
+
+	// Sommerhus
+	var ejendomsvaerdiSommerhus
+	var ejendomsvaerdiskatUnderSommerhus 
+	var ejendomsvaerdiskatOverSommerhus
+	var ejendomsvaerdiskatSommerhus
+
+	var nedslagsprcSommerhus
+	var nedslagSommerhus
+
+	var sommerhus = form.sommerhus[0].checked
+	var senestJuli1998Sommerhus = form.senestJuli1998Sommerhus[0].checked
+
+	if (sommerhus) {
+		ejendomsvaerdiSommerhus = parse(form.angivetEjendomsvaerdiSommerhus.value)
+		form.ejendomsvaerdiSommerhus.value = tilDanskHeltal(afrund(ejendomsvaerdiSommerhus))
+
+		if (ejendomsvaerdiSommerhus <= ejendomsvaerdigraense) {
+			ejendomsvaerdiskatUnderSommerhus = ejendomsvaerdiSommerhus * (ejendomsvaerdiskatprcUnder / 100)
+			form.ejendomsvaerdiskatUnderSommerhus.value = tilDanskHeltal(afrund(ejendomsvaerdiskatUnderSommerhus))
+	
+			ejendomsvaerdiskatOverSommerhus = 0	
+			form.ejendomsvaerdiskatOverSommerhus.value = ""
+		} else {
+			// under grænsen
+			ejendomsvaerdiskatUnderSommerhus = ejendomsvaerdigraense * (ejendomsvaerdiskatprcUnder / 100)
+			form.ejendomsvaerdiskatUnderSommerhus.value = tilDanskHeltal(afrund(ejendomsvaerdiskatUnderSommerhus))
+	
+			// over grænsen
+			ejendomsvaerdiskatOverSommerhus = (ejendomsvaerdiSommerhus - ejendomsvaerdigraense)
+				* (ejendomsvaerdiskatprcOver / 100)
+			form.ejendomsvaerdiskatOverSommerhus.value = tilDanskHeltal(afrund(ejendomsvaerdiskatOverSommerhus))
+		}
+
+		nedslagSommerhus = 0
+		if (senestJuli1998Sommerhus) {
+			// Jfr. ejendomsværdiskatteloven § 6
+			nedslagsprc = 0.2
+
+			nedslagSommerhus = ejendomsvaerdiSommerhus * (nedslagsprc / 100)
+
+			// nedslag yderligere 0.4 %, dog max. 1.200 kr., jfr. ejendomsværdiskatteloven § 7
+			nedslagsprc = 0.4
+
+			nedslagSommerhus += Math.min(ejendomsvaerdiSommerhus * (nedslagsprc / 100), 1200)
+		} else {
+			nedslagsprc = 0
+			nedslagSommerhus = 0
+		}
+
+		form.nedslagSommerhus.value = tilDanskHeltal(afrund(nedslagSommerhus))
+
+		ejendomsvaerdiskatSommerhus = ejendomsvaerdiskatUnderSommerhus
+			+ ejendomsvaerdiskatOverSommerhus
+			- nedslagSommerhus
+
+		form.ejendomsvaerdiskatSommerhus.value = tilDanskHeltal(afrund(ejendomsvaerdiskatSommerhus))
+	
+	} else {
+		if (parse(form.angivetEjendomsvaerdiSommerhus.value) > 0) {
+			alert("Du har angivet en ejendomsværdi for et sommerhus og samtidigt oplyst, at du ikke har et sommerhus!")
+			fatalFejl = true
+		}
+
+		form.ejendomsvaerdiSommerhus.value = "intet sommerhus"
+		form.ejendomsvaerdiskatUnderSommerhus.value = ""
+		form.ejendomsvaerdiskatOverSommerhus.value = ""
+
+		ejendomsvaerdiskatSommerhus = 0
+		form.ejendomsvaerdiskatSommerhus.value = ejendomsvaerdiskatSommerhus
+	}
+
+	ejendomsvaerdiskatIalt = ejendomsvaerdiskatHelaarsbolig
+					+ ejendomsvaerdiskatSommerhus
+
+	form.ejendomsvaerdiskatIalt.value = tilDanskHeltal(afrund(ejendomsvaerdiskatIalt))
+
+	///////////////////////////////////
+	// Grundskyld
+	///////////////////////////////////
+	var grundskyldIalt	
+	var grundvaerdi
+	var grundskyldHelaarsbolig
+
+	// Helårsbolig
+
+	var parcelhus = form.bolig[2].checked
+	var ejerlejlighed = form.bolig[3].checked
+
+	if (parcelhus || ejerlejlighed) {
+
+		grundvaerdi = parse(form.angivetGrundvaerdi.value);
+		form.grundvaerdi.value = tilDanskHeltal(afrund(grundvaerdi));
+
+		form.grundskyldpromille.value = grundskyldpromille;
+
+		grundskyldHelaarsbolig = grundvaerdi * grundskyldpromille / 1000;
+		form.grundskyldHelaarsbolig.value = tilDanskHeltal(afrund(grundskyldHelaarsbolig));
+	} else {
+		if (parse(form.angivetGrundvaerdi.value) > 0) {
+			alert("Du har angivet en grundværdi og samtidigt oplyst, at du har en lejebolig/andelsbolig!");
+			fatalFejl = true;
+		}
+
+		form.grundvaerdi.value = "leje/andelsbolig"
+		form.grundskyldpromille.value = "";
+
+		grundskyldHelaarsbolig = 0
+		form.grundskyldHelaarsbolig.value = grundskyldHelaarsbolig
+	}
+
+	// Sommerhus
+	var grundvaerdiSommerhus
+	var grundskyldSommerhus
+
+	var sommerhus = form.sommerhus[0].checked
+	var senestJuli1998Sommerhus = form.senestJuli1998Sommerhus[0].checked
+
+	if (sommerhus) {
+		grundvaerdiSommerhus = parse(form.angivetGrundvaerdiSommerhus.value);
+		form.grundvaerdiSommerhus.value = tilDanskHeltal(afrund(grundvaerdiSommerhus));
+
+		form.grundskyldpromilleSommerhus.value = grundskyldpromilleSommerhus;
+
+		grundskyldSommerhus = grundvaerdiSommerhus * grundskyldpromilleSommerhus / 1000;
+		form.grundskyldSommerhus.value = tilDanskHeltal(afrund(grundskyldSommerhus));
+
+	} else {
+		if (parse(form.angivetGrundvaerdiSommerhus.value) > 0) {
+			alert("Du har angivet en grundværdi for et sommerhus og samtidigt oplyst, at du ikke har et sommerhus!")
+			fatalFejl = true
+		}
+
+		form.grundvaerdiSommerhus.value = "intet sommerhus"
+		form.grundskyldpromilleSommerhus.value = "";
+
+		grundskyldSommerhus = 0
+		form.grundskyldSommerhus.value = grundskyldSommerhus
+	}
+
+	grundskyldIalt = grundskyldHelaarsbolig
+				+ grundskyldSommerhus
+
+	form.grundskyldIalt.value = tilDanskHeltal(afrund(grundskyldIalt))
+
+	//////////////////////
+	// Aktieskat
+	//////////////////////
+
+	var samletAktieindkomst
+	var samletProgressionsgraense
+	var aktieindkomstUnderGraense
+	var aktieindkomstOverGraense
+
+	var aktieskatUnderGraense
+	var aktieskatOverGraense
+
+	var aktieskatIalt
+	
+	form.Maktieindkomst1.value = tilDanskHeltal(afrund(Maktieindkomst))
+	samletAktieindkomst = Maktieindkomst
+
+	form.Maktiegraense.value = tilDanskHeltal(afrund(aktieskatgrundbeloeb))
+	samletProgressionsgraense = aktieskatgrundbeloeb
+
+	if (gift) {
+		form.Kaktieindkomst1.value = tilDanskHeltal(afrund(Kaktieindkomst))
+		samletAktieindkomst += Kaktieindkomst
+
+		form.Kaktiegraense.value = tilDanskHeltal(afrund(aktieskatgrundbeloeb))
+		samletProgressionsgraense += aktieskatgrundbeloeb
+
+	} else {
+		form.Kaktieindkomst1.value = "ugift"
+		form.Kaktiegraense.value = "ugift"
+	}
+
+	form.samletAktieindkomst.value = tilDanskHeltal(afrund(samletAktieindkomst))
+	form.samletProgressionsgraense.value = tilDanskHeltal(afrund(samletProgressionsgraense))
+
+	if (samletAktieindkomst <= samletProgressionsgraense) {
+		if (samletAktieindkomst >= 0) {
+			aktieindkomstUnderGraense = samletAktieindkomst 
+			aktieindkomstOverGraense = 0
+		} else {
+			// samlet aktieindkomst er negativ
+			if (samletAktieindkomst * (-1) <= samletProgressionsgraense) {
+				aktieindkomstUnderGraense = samletAktieindkomst
+				aktieindkomstOverGraense = 0
+			} else {
+				aktieindkomstUnderGraense = (-1) * samletProgressionsgraense
+				aktieindkomstOverGraense = samletAktieindkomst - aktieindkomstUnderGraense
+			}
+		}
+	} else {
+		// samlet aktieindkomst er over progressionsgrænsen
+		aktieindkomstUnderGraense = samletProgressionsgraense
+		aktieindkomstOverGraense = samletAktieindkomst - aktieindkomstUnderGraense
+	}
+
+	form.aktieindkomstUnderGraense.value = tilDanskHeltal(afrund(aktieindkomstUnderGraense))
+	form.aktieindkomstOverGraense.value = tilDanskHeltal(afrund(aktieindkomstOverGraense))
+
+	aktieskatUnderGraense = aktieindkomstUnderGraense * (underAktieskatprc / 100) 
+	aktieskatOverGraense = aktieindkomstOverGraense * (overAktieskatprc / 100) 
+
+	form.aktieskatUnderGraense.value = tilDanskHeltal(afrund(aktieskatUnderGraense))
+	form.aktieskatOverGraense.value = tilDanskHeltal(afrund(aktieskatOverGraense))
+
+	aktieskatIalt = aktieskatUnderGraense + aktieskatOverGraense
+	
+	form.aktieskatIalt.value = tilDanskHeltal(afrund(aktieskatIalt))
+
+	form.aktieskatprcUnderGraense.value = underAktieskatprc
+	form.aktieskatprcOverGraense.value = overAktieskatprc
+
+	// aktieskat [slut]
+
+	//////////////////////////////////
+	// AMB og ATP-bidrag
+	//////////////////////////////////
+
+	// beregningen er foretaget oven for i indkomstopgørelse
+	form.AMBATPprc.value = AMBprc
+
+	var MberegningsgrundlagAMB
+	var KberegningsgrundlagAMB
+	var AMBIalt
+
+	form.MloenFoerAMB.value = tilDanskHeltal(afrund(MloenFoerAMB))
+
+	MberegningsgrundlagAMB = MloenFoerAMB
+	form.MberegningsgrundlagAMB.value = tilDanskHeltal(afrund(MberegningsgrundlagAMB))
+
+	form.MAMB.value = tilDanskHeltal(afrund(MAMB))
+
+	if (gift) {
+		form.KloenFoerAMB.value = tilDanskHeltal(afrund(KloenFoerAMB))
+
+		KberegningsgrundlagAMB = KloenFoerAMB
+		form.KberegningsgrundlagAMB.value = tilDanskHeltal(afrund(KberegningsgrundlagAMB))
+		
+		form.KAMB.value = tilDanskHeltal(afrund(KAMB))
+
+		AMBIalt = MAMB + KAMB
+	} else {
+		form.KloenFoerAMB.value = "ugift"
+		form.KAMB.value = "ugift"
+		form.KberegningsgrundlagAMB.value = "ugift"
+
+		AMBIalt = MAMB
+	}
+
+	form.AMBIalt.value = tilDanskHeltal(afrund(AMBIalt))
+	// AMB og ATP-bidrag [slut]
+
+// ** Start: Ny 2012 ****
+
+	///////////////////////////////////////
+	// Nedslag negativ nettokapitalindkomst
+	///////////////////////////////////////
+
+	// Jf. personskattelovens § 11
+
+	var nedslagsgraenseNegativKapitalindkomst;
+
+	form.nedslagNegativNettokapitalindkomstprc.value = nedslagNegativNettokapitalindkomstprc
+
+	form.Mkapitalindkomst_nedslag.value = tilDanskHeltal(afrund(Mkapitalindkomst));
+	if (gift) {
+		nedslagsgraenseNegativKapitalindkomst = 2 * 50000;
+		form.Kkapitalindkomst_nedslag.value = tilDanskHeltal(afrund(Kkapitalindkomst));
+	} else {
+		nedslagsgraenseNegativKapitalindkomst = 50000;
+		form.Kkapitalindkomst_nedslag.value = "ugift";
+	}
+
+	if (Mkapitalindkomst + Kkapitalindkomst < 0) {
+		SamletNegativKapitalindkomst_nedslag = (-1)*(Mkapitalindkomst + Kkapitalindkomst);
+
+		if (SamletNegativKapitalindkomst_nedslag > nedslagsgraenseNegativKapitalindkomst) {
+			SamletNegativKapitalindkomst_nedslag = nedslagsgraenseNegativKapitalindkomst;
+		}
+	} else {
+		SamletNegativKapitalindkomst_nedslag = 0;
+	}
+
+	form.SamletNegativKapitalindkomst_nedslag.value = tilDanskHeltal(afrund((-1)*SamletNegativKapitalindkomst_nedslag));
+
+	var NedslagNegativKapitalindkomst;
+
+	NedslagNegativKapitalindkomst = SamletNegativKapitalindkomst_nedslag * (nedslagNegativNettokapitalindkomstprc/100);
+	
+	form.NedslagNegativKapitalindkomst.value =  tilDanskHeltal(afrund((-1)*NedslagNegativKapitalindkomst));
+
+	form.IaltNedslagNegativKapitalindkomst.value = tilDanskHeltal(afrund((-1)*NedslagNegativKapitalindkomst));
+
+	// Nedslag negativ nettokapitalindkomst [slut]
+
+// ** Slut: Ny 2012 ****
+
+	// Samlet skat inkl. AMB og ATP-bidrag
+	skatIalt = 
+		// negativ kommunal skat og bundskat kan modregnes i mellem- og topskat og i aktieskat over mellem- og topgrænse
+		pos(kommSkatIalt
+				+ bundskatIalt
+				+ topskatIalt
+				+ aktieskatOverGraense
+				- NedslagNegativKapitalindkomst)
+
+		// skat efter § 8 a, stk. 1, er endelig - ikke modregning af ovenstående i skatten
+	skatIalt += aktieskatUnderGraense
+
+		// der kan ikke modregnes i ejendomsværdiskat og arbejdsmarkedsbidrag
+	skatIalt = pos(skatIalt)
+			+ AMBIalt 
+
+	form.skatIalt.value = tilDanskHeltal(afrund(skatIalt))
+
+
+	skatFastEjendomIalt = ejendomsvaerdiskatIalt + grundskyldIalt;
+	form.skatFastEjendomIalt.value = tilDanskHeltal(afrund(skatFastEjendomIalt))
+
+}
+}
+
+// Hjælpefunktioner
+function forskelEenDecimal(x, y) {
+	// returnerer x-y med en decimal
+	return (Math.round(x*10 - y*10) / 10)
+}
+
+function forskelToDecimaler(x, y) {
+	// returnerer x-y med to decimal
+	return (Math.round(x*100 - y*100) / 100)
+}
+
+function kommune (skatteprocenter, hus) {
+	var i
+	var j
+
+	kommunenavn = "intet"
+
+	// skatteprocenter har format: "19.9 0.57 25.74"
+	// kommune, kirke, grundskyldpromille
+
+	i = findCiffer(skatteprocenter,0)
+	// i peger nu på første ciffer
+
+	j = findIkkeCiffer(skatteprocenter,i)
+	// j peger nu på første ikke-ciffer
+	if (hus=="helaarsbolig") {
+		kommuneprc = parseFloat(skatteprocenter.substring(i,j))
+	}
+
+	i = findCiffer(skatteprocenter,j)
+	// i peger nu på første ciffer
+
+	j = findIkkeCiffer(skatteprocenter,i)
+	// j peger nu på første ikke-ciffer
+	if (hus=="helaarsbolig") {
+		kirkeprc = parseFloat(skatteprocenter.substring(i,j))
+	}
+
+	i = findCiffer(skatteprocenter,j)
+	// i peger nu på første ciffer
+
+	j = findIkkeCiffer(skatteprocenter,i)
+	// j peger nu på første ikke-ciffer
+
+	if (hus=="helaarsbolig") {
+		grundskyldpromille = parseFloat(skatteprocenter.substring(i,j));
+	} else {
+		grundskyldpromilleSommerhus = parseFloat(skatteprocenter.substring(i,j));
+	}
+}
+
+function findCiffer (str,start) {
+	// Finder den første position, hvor der står et ciffer
+	// regnet fra start (= indexOf("ciffer",start))
+	// MSIE 3 implementerer ikke indexOf
+
+	var i
+
+	i = start
+	while (	(str.charAt(i) != '0') &&
+		(str.charAt(i) != '1') && 
+		(str.charAt(i) != '2') && 
+		(str.charAt(i) != '3') &&
+		(str.charAt(i) != '4') && 
+		(str.charAt(i) != '5') && 
+		(str.charAt(i) != '6') && 
+		(str.charAt(i) != '7') && 
+		(str.charAt(i) != '8') && 
+		(str.charAt(i) != '9'))
+	{i +=1}
+
+	return i		
+}
+
+function findIkkeCiffer (str,start) {
+	// Finder den første position, hvor der ikke står et ciffer eller et decimalpunktum (.)
+	// regnet fra start (= indexOf("x",start))
+	// MSIE 3 implementerer ikke indexOf
+
+	var i
+
+	i = start
+	while ( (str.charAt(i) == '.') ||
+		(str.charAt(i) == '0') || 
+		(str.charAt(i) == '1') || 
+		(str.charAt(i) == '2') || 
+		(str.charAt(i) == '3') || 
+		(str.charAt(i) == '4') || 
+		(str.charAt(i) == '5') || 
+		(str.charAt(i) == '6') || 
+		(str.charAt(i) == '7') || 
+		(str.charAt(i) == '8') || 
+		(str.charAt(i) == '9'))
+	{i +=1}
+
+	return i		
+}
+
+function pos(tal) {
+	if (tal > 0) {
+		return tal
+	} else {
+		return 0
+	}
+}
+
+function afrund(tal) {
+	return Math.round(tal)
+}
+
+function afrund2dec(tal) {
+	return Math.round(tal*100) / 100
+}
+
+function parse(str) {
+	return parse3(str)
+}
+
+function parse3(str) {
+	// Læser kun heltal
+	resultat = parseInt(str)
+
+	if (isNaN(resultat)) {
+		return 0
+	} else {
+		return resultat
+	}
+}
+
+function tilDanskHeltal (heltal) {
+	// Funktionen returnerer en streng som repræsenterer tallet heltal med eventuelle punktummer som 1000-tals-adskillelse
+	// Eksempel:
+	// tilDanskHeltal(1000000) = "1.000.000"
+	// tilDanskHeltal(-1000) = "-1.000"
+	// Undersøg om tallet er negativt
+	if (heltal < 0) {
+		heltal = (-1) * heltal
+		neg = "-"
+	} else {
+		neg = ""
+	}
+
+	str = ""
+
+	cifferplads=0
+	rest = heltal
+	while (rest >= 10) {
+		cifferplads++
+		str = (rest % 10) + str
+		if (cifferplads == 3) {
+			cifferplads = 0
+			str = "." + str
+		}
+		rest = (rest - (rest % 10)) / 10
+	}
+	// sidste ciffer
+	str = rest + str
+	return neg + str
+}
+
+function talkontrol(str) {
+	// Kontrollerer, at der i str ikke forekommer . eller ,
+	if (str.indexOf(",") != -1) {
+		alert("Fejl i sidste tal: Kun hele tal. Brug ikke komma (,) i talangivelser.")
+	}
+
+	if (str.indexOf(".") != -1) {
+		alert("Fejl i sidste tal: Brug ikke punktum (.) i talangivelser.")
+	}
+
+	// Kontrollerer, at der ikke er negative tal
+	if (str.indexOf("-") != -1) {
+		alert("Fejl i sidste tal: Indtast kun positive tal.")
+	}
+}
+
+function ingenUdfyldning() {
+	alert("Du skal ikke indtaste noget i dette felt!")
+}
+
+function onlyNumbers(e) {
+	// Kun tal
+	var keynum;
+	var keychar;
+	var numcheck;
+
+	if(window.event) { // IE 
+		keynum = e.keyCode;
+	} else {
+		if (!e.which) return; // Korrektion for fejl i visse browsere
+
+		if(e.which) { // Netscape/Firefox/Opera
+		  	keynum = e.which;
+		}
+	}
+
+	keychar = String.fromCharCode(keynum);
+	numcheck = /\d/;
+
+	if (keynum==8) { // backspace
+		return true;
+	} else {
+		return numcheck.test(keychar);
+	}
+}
+
+function onlyPositiveAndNegativeNumbers(e) {
+	// Kun tal og -
+	var keynum;
+	var keychar;
+	var numcheck;
+
+	if(window.event) { // IE 
+		keynum = e.keyCode;
+	} else {
+		if (!e.which) return; // Korrektion for fejl i visse browsere
+
+		if(e.which) { // Netscape/Firefox/Opera
+		  	keynum = e.which;
+		}
+	}
+
+	keychar = String.fromCharCode(keynum);
+	numcheck = /\d/;
+
+	if ((keynum==8) || (keynum==45)) { // backspace eller -
+		return true;
+	} else {
+		return numcheck.test(keychar);
+	}
+}
+
+function noInput(e) {
+	return false;
+}
+
+function s(vindue,tekst) {
+	// Udskriver tekst i vindue efter nedenstående ændringer i tekst:
+
+	re = /ÆÆ/g; // starttag=ÆÆ ; tilføjes i efter g ignoreres case
+	tekst=tekst.replace(re, "<");
+
+	vindue.document.writeln(tekst)	
+}
+
+<!-- function befordringsfradrag -->
+
+function hjaelp (hjaelpefil) {
+	window.open("./hjaelp19/" + hjaelpefil,"","dependent,height=450,width=600,scrollbars=yes")
+}
+
+// slut gem for gamle browsere -->
+</script>
+
+<!-- start: statistik -->
+
+<!-- slut: statistik -->
+
+</head>
+
+<body bgcolor="#FFFFFF">
+
+<!-- Google Tag Manager -->
+
+<!-- End Google Tag Manager -->
+
+<!-- start: Header skatteberegning -->
+<table cellspacing="0" cellpadding="0" width="100%">
+<tbody><tr>
+<td>
+	<table cellspacing="0" cellpadding="0" width="100%" align="center" summary="">
+	<tbody><tr>
+	
+	<td valign="top">
+		<table cellspacing="0" cellpadding="0" border="0" width="100%" summary="">
+		<tbody><tr>
+		<td valign="top" align="left"><a href="https://tax.dk/"><img src="./tax2023_files/hjem-5-01.png" border="0" align="top" alt="Til forside"></a></td>
+		</tr>
+		</tbody></table>
+	</td>
+	
+	<td width="10"></td>
+	
+	<td align="right" valign="top"><a href="https://tax.dk/"><img src="./tax2023_files/tax.gif" align="top" alt="www.tax.dk - skat og afgift" border="0"></a></td>
+	</tr>
+	</tbody></table>
+</td>
+</tr>
+
+<tr><td height="10"></td></tr>
+</tbody></table>
+<!-- slut: Header skatteberegning -->
+
+<table cellspacing="0" cellpadding="1" border="0" width="100%" bgcolor="#FFFFFF">
+
+<tbody><tr><td height="16"></td></tr>
+
+<tr><td height="1" bgcolor="#D3D3D3"></td></tr>
+
+<tr>
+<td class="overskrift1" align="center" bgcolor="#F5F5F5">Skatteberegning 2023</td>
+</tr>
+
+<tr>
+<td class="petit" valign="top" align="center" bgcolor="#F5F5F5">De indtastede oplysningerne behandles på den computer, du sidder ved.<br>Intet bliver sendt ud på internettet.</td>
+</tr>
+
+<tr><td height="12" bgcolor="#F5F5F5"></td></tr>
+
+<tr><td height="1" bgcolor="#D3D3D3"></td></tr>
+<tr><td height="12"></td></tr>
+
+</tbody></table>
+
+
+<form name="skatteskema">
+<table cellspacing="1" cellpadding="2" border="0" width="100%" bgcolor="lightgrey">
+<tbody><tr bgcolor="white">
+	<td class="overskrift2" colspan="7"><b>1. Forskellige oplysninger</b></td>
+</tr>
+
+<tr bgcolor="white">
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td><u><b>Skatteyder</b></u></td>
+	<td></td>
+	<td><u><b>Ægtefælle</b></u></td>
+</tr>
+
+<tr bgcolor="white"><td height="4" colspan="7"></td></tr>
+
+<tr bgcolor="white">
+	<td>Gift ?</td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td><input type="Radio" name="civilstand" value="ja">&nbsp;ja&nbsp;<input type="Radio" name="civilstand" value="nej" checked="">&nbsp;nej</td>
+	<td></td>
+	<td></td>
+</tr>
+
+<tr bgcolor="white">
+	<td>Under 18 år hele indkomståret ?</td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td><input type="Radio" name="Munder18" value="under18" onclick="if (skatteorakel) {check_alder_boern(form)}">&nbsp;ja&nbsp;<input type="Radio" name="Munder18" checked="" value="over18">&nbsp;nej&nbsp;</td>
+	<td></td>
+	<td><input type="Radio" name="Kunder18" value="under18">&nbsp;ja&nbsp;<input type="Radio" name="Kunder18" checked="" value="over18">&nbsp;nej&nbsp;</td>
+</tr>
+
+<tr bgcolor="white">
+	<td>Mere end 15 år til folkepensionsalderen ?</td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td><input type="Radio" name="MmereEnd15AarFolkepension" checked="" value="ja">&nbsp;ja&nbsp;<input type="Radio" name="MmereEnd15AarFolkepension" value="nej">&nbsp;nej&nbsp;</td>
+	<td></td>
+	<td><input type="Radio" name="KmereEnd15AarFolkepension" checked="" value="ja">&nbsp;ja&nbsp;<input type="Radio" name="KmereEnd15AarFolkepension" value="nej">&nbsp;nej&nbsp;</td>
+</tr>
+
+<tr bgcolor="white">
+	<td>Medlem af Folkekirken ?</td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td><input type="Radio" name="MmedlemFolkekirke" checked="" value="Mmedlem">&nbsp;ja&nbsp;<input type="Radio" name="MmedlemFolkekirke" value="Mikkemedlem">&nbsp;nej&nbsp;</td>
+	<td></td>
+	<td><input type="Radio" name="KmedlemFolkekirke" checked="" value="Kmedlem">&nbsp;ja&nbsp;<input type="Radio" name="KmedlemFolkekirke" value="Kikkemedlem">&nbsp;nej</td>
+</tr>
+
+<tr bgcolor="white"><td height="6" colspan="7"></td></tr>
+
+<tr bgcolor="white">
+<td>Bopælskommune pr. 5. september <input type="Text" name="bopaelsaar" size="4" onkeypress="return noInput(event);" class="hoejre"> ?</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+<!-- Kommunale skatteprocenter 2023. Baseret på tal downloadet fra www.skm.dk den 20/12-2022 -->
+<!-- kommune, kirke, grundskyldpromille -->
+<select name="kommune" size="1">
+<option value="25.6 0.8 33.940">Albertslund</option>
+<option value="25.3 0.58 23.800">Allerød</option>
+<option value="26.1 0.98 22.120">Assens</option>
+<option value="25.5 0.72 28.890">Ballerup</option>
+<option value="24 0.89 18.480">Billund</option>
+<option value="26.2 0.93 34.000">Bornholm</option>
+<option value="24.3 0.8 20.500">Brøndby</option>
+<option value="26.3 1.08 31.230">Brønderslev</option>
+<option value="24.8 0.61 24.470">Dragør</option>
+<option value="25.7 0.76 23.980">Egedal</option>
+<option value="25.8 0.81 25.290">Esbjerg</option>
+<option value="25.66 1.14 34.000">Fanø</option>
+<option value="25.7 0.96 23.320">Favrskov</option>
+<option value="25.8 1.08 25.000">Faxe</option>
+<option value="25.3 0.6 24.650">Fredensborg</option>
+<option value="25.5 0.88 26.000">Fredericia</option>
+<option value="23.47 0.5 24.750">Frederiksberg</option>
+<option value="26.2 1.03 29.900">Frederikshavn</option>
+<option value="25.8 0.96 32.500">Frederikssund</option>
+<option value="24.88 0.65 21.500">Furesø</option>
+<option value="26.1 1.05 22.850">Faaborg-Midtfyn</option>
+<option value="24.17 0.4 16.000">Gentofte</option>
+<option value="23.6 0.75 23.000">Gladsaxe</option>
+<option value="24.6 0.8 25.000">Glostrup</option>
+<option value="24.42 0.73 16.944">Greve</option>
+<option value="25.4 0.85 29.340">Gribskov</option>
+<option value="25.8 1.16 32.340">Guldborgsund</option>
+<option value="26.3 0.95 24.360">Haderslev</option>
+<option value="25.7 0.85 34.000">Halsnæs</option>
+<option value="25.52 0.98 18.000">Hedensted</option>
+<option value="25.52 0.63 28.500">Helsingør</option>
+<option value="23.7 0.75 24.300">Herlev</option>
+<option value="24.9 0.99 20.530">Herning</option>
+<option value="25.6 0.69 20.650">Hillerød</option>
+<option value="26.21 1.19 34.000">Hjørring</option>
+<option value="25.3 0.96 25.092">Holbæk</option>
+<option value="25.5 1.08 24.120">Holstebro</option>
+<option value="25.39 0.79 22.560">Horsens</option>
+<option value="25.4 0.72 29.700">Hvidovre</option>
+<option value="24.6 0.8 24.400">Høje-Taastrup</option>
+<option value="23.7 0.62 22.100">Hørsholm</option>
+<option value="25.1 0.97 20.350">Ikast-Brande</option>
+<option value="25 0.9 25.000">Ishøj</option>
+<option value="25.7 1.2 32.850">Jammerbugt</option>
+<option value="24.2 1.01 34.000">Kalundborg</option>
+<option value="26.1 0.98 30.300">Kerteminde</option>
+<option value="25.5 0.92 25.000">Kolding</option>
+<option value="23.7 0.8 34.000">København</option>
+<option value="25.26 0.87 21.038">Køge</option>
+<option value="26.3 1.14 24.570">Langeland</option>
+<option value="25.31 1.05 28.230">Lejre</option>
+<option value="25.46 1.27 28.000">Lemvig</option>
+<option value="26.3 1.23 33.090">Lolland</option>
+<option value="24.38 0.62 21.485">Lyngby-Taarbæk</option>
+<option value="26.3 1.3 34.000">Læsø</option>
+<option value="25.9 1.15 34.000">Mariagerfjord</option>
+<option value="25.8 0.9 21.290">Middelfart</option>
+<option value="25.8 1.2 24.680">Morsø</option>
+<option value="26 1 34.000">Norddjurs</option>
+<option value="26 1.04 29.980">Nordfyns</option>
+<option value="26.3 1 27.830">Nyborg</option>
+<option value="25 0.98 25.000">Næstved</option>
+<option value="25.1 0.95 30.320">Odder</option>
+<option value="25.5 0.68 21.710">Odense</option>
+<option value="26.3 0.98 34.000">Odsherred</option>
+<option value="25.8 0.89 27.930">Randers</option>
+<option value="25.33 1.2 26.086">Rebild</option>
+<option value="25 1.05 31.000">Ringkøbing-Skjern</option>
+<option value="26.1 0.95 24.740">Ringsted</option>
+<option value="25.2 0.84 25.690">Roskilde</option>
+<option value="23.21 0.57 22.930">Rudersdal</option>
+<option value="25.7 0.72 30.800">Rødovre</option>
+<option value="25.9 1.22 30.750">Samsø</option>
+<option value="25.5 0.95 28.260">Silkeborg</option>
+<option value="26 0.86 24.660">Skanderborg</option>
+<option value="25.5 1.09 20.680">Skive</option>
+<option value="25.6 0.96 25.300">Slagelse</option>
+<option value="24.9 0.89 20.950">Solrød</option>
+<option value="26.3 0.95 25.740">Sorø</option>
+<option value="26 1.1 21.520">Stevns</option>
+<option value="25.3 1.2 22.900">Struer</option>
+<option value="26.3 1.02 23.320">Svendborg</option>
+<option value="25.9 1 33.800">Syddjurs</option>
+<option value="25.7 0.91 27.100">Sønderborg</option>
+<option value="25.5 1.27 23.750">Thisted</option>
+<option value="25.3 1.16 21.240">Tønder</option>
+<option value="23.1 0.61 24.000">Tårnby</option>
+<option value="25.6 0.8 24.380">Vallensbæk</option>
+<option value="25.1 0.95 31.560">Varde</option>
+<option value="25.33 1.06 20.360">Vejen</option>
+<option value="23.4 0.89 27.750">Vejle</option>
+<option value="26.3 1.18 22.820">Vesthimmerland</option>
+<option value="25.5 0.93 23.700">Viborg</option>
+<option value="25.7 1.02 32.320">Vordingborg</option>
+<option value="26.1 1.07 30.000">Ærø</option>
+<option value="25.6 0.95 18.900">Aabenraa</option>
+<option value="25.4 0.98 26.950">Aalborg</option>
+<option value="24.52 0.74 24.580">Aarhus</option>
+</select>
+</td>
+<td></td>
+<td></td>
+</tr>
+
+<tr bgcolor="white">
+  	<td>Bolig ?</td>
+	<td></td>
+	<td></td>
+	<td></td>
+		<td><input type="Radio" name="bolig" checked="">&nbsp;lejebolig</td>
+	<td></td>
+	<td></td>
+</tr>
+
+<tr bgcolor="white">
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td><input type="Radio" name="bolig">&nbsp;egen andelsbolig</td>
+	<td></td>
+	<td></td>
+</tr>
+
+<tr bgcolor="white">
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td><input type="Radio" name="bolig">&nbsp;eget enfamiliehus</td>
+	<td></td>
+	<td></td>
+</tr>
+
+<tr bgcolor="white">
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td><input type="Radio" name="bolig">&nbsp;egen ejerlejlighed</td>
+	<td></td>
+	<td></td>
+</tr>
+
+<tr bgcolor="white">
+  	<td>Ejendomsværdi af enfamiliehus/ejerlejlighed</td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td><input type="Text" name="angivetEjendomsvaerdi" onkeypress="return onlyNumbers(event);" class="hoejre"></td>
+	<td></td>
+	<td></td>
+</tr>
+
+<tr bgcolor="white">
+  	<td>Enfamiliehus/ejerlejlighed erhvervet senest 1. juli 1998 ?</td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td><input type="Radio" name="senestJuli1998">&nbsp;ja&nbsp;<input type="Radio" name="senestJuli1998" checked="">&nbsp;nej&nbsp;</td>
+	<td></td>
+	<td></td>
+</tr>
+
+<tr bgcolor="white">
+  	<td>Grundværdi enfamiliehus/ejerlejlighed</td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td><input type="Text" name="angivetGrundvaerdi" onkeypress="return onlyNumbers(event);" class="hoejre"></td>
+	<td></td>
+	<td></td>
+</tr>
+
+<tr bgcolor="white"><td height="6" colspan="7"></td></tr>
+
+<tr bgcolor="white">
+  	<td>Sommerhus ?</td>
+ 	<td></td>
+	<td></td>
+	<td></td>
+	<td><input type="radio" name="sommerhus">&nbsp;ja&nbsp;<input type="radio" name="sommerhus" checked="">&nbsp;nej&nbsp;</td>
+	<td></td>
+	<td></td>
+</tr>
+
+<tr bgcolor="white">
+	<td>Ejendomsværdi af sommerhus</td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td><input type="Text" name="angivetEjendomsvaerdiSommerhus" onkeypress="return onlyNumbers(event);" class="hoejre"></td>
+	<td></td>
+	<td></td>
+</tr>
+
+<tr bgcolor="white">
+<td>Beliggenhed sommerhus</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+<!-- Kommunale skatteprocenter 2022. Baseret på tal downloadet fra www.skm.dk den 12/12-2021 -->
+<!-- kommune, kirke, grundskyldpromille -->
+<select name="kommuneSommerhus" size="1">
+<option value="25.60 0.80 33.940">Albertslund</option>
+<option value="24.30 0.58 23.800">Allerød</option>
+<option value="26.10 0.98 22.120">Assens</option>
+<option value="25.50 0.72 28.890">Ballerup</option>
+<option value="24.00 0.89 18.480">Billund</option>
+<option value="26.20 0.93 34.000">Bornholm</option>
+<option value="24.30 0.80 20.500">Brøndby</option>
+<option value="26.30 1.08 31.230">Brønderslev</option>
+<option value="24.80 0.61 24.470">Dragør</option>
+<option value="25.70 0.76 23.980">Egedal</option>
+<option value="25.80 0.81 25.290">Esbjerg</option>
+<option value="25.43 1.14 34.000">Fanø</option>
+<option value="25.70 0.96 23.320">Favrskov</option>
+<option value="25.80 1.08 25.000">Faxe</option>
+<option value="25.30 0.60 24.650">Fredensborg</option>
+<option value="25.50 0.88 26.000">Fredericia</option>
+<option value="22.80 0.50 24.750">Frederiksberg</option>
+<option value="26.20 1.03 29.900">Frederikshavn</option>
+<option value="25.80 0.96 32.500">Frederikssund</option>
+<option value="24.80 0.65 21.500">Furesø</option>
+<option value="26.10 1.05 22.850">Faaborg-Midtfyn</option>
+<option value="24.00 0.40 16.000">Gentofte</option>
+<option value="23.60 0.75 23.000">Gladsaxe</option>
+<option value="23.60 0.80 25.000">Glostrup</option>
+<option value="24.32 0.73 16.940">Greve</option>
+<option value="25.40 0.85 29.340">Gribskov</option>
+<option value="25.80 1.16 32.340">Guldborgsund</option>
+<option value="26.30 0.95 24.360">Haderslev</option>
+<option value="25.70 0.85 34.000">Halsnæs</option>
+<option value="25.40 0.98 18.000">Hedensted</option>
+<option value="25.52 0.63 28.500">Helsingør</option>
+<option value="23.70 0.75 24.300">Herlev</option>
+<option value="24.90 0.99 20.530">Herning</option>
+<option value="25.85 0.69 20.650">Hillerød</option>
+<option value="26.10 1.19 34.000">Hjørring</option>
+<option value="25.30 0.96 25.090">Holbæk</option>
+<option value="25.50 1.08 24.120">Holstebro</option>
+<option value="25.39 0.81 22.560">Horsens</option>
+<option value="25.50 0.72 29.700">Hvidovre</option>
+<option value="24.60 0.80 24.400">Høje-Taastrup</option>
+<option value="23.70 0.62 22.100">Hørsholm</option>
+<option value="25.10 0.97 20.350">Ikast-Brande</option>
+<option value="25.00 0.90 25.000">Ishøj</option>
+<option value="25.70 1.20 32.850">Jammerbugt</option>
+<option value="24.20 1.01 34.000">Kalundborg</option>
+<option value="26.10 0.98 30.300">Kerteminde</option>
+<option value="25.50 0.92 25.000">Kolding</option>
+<option value="23.80 0.80 34.000">København</option>
+<option value="24.90 0.87 21.040">Køge</option>
+<option value="26.30 1.14 24.570">Langeland</option>
+<option value="25.31 1.05 28.230">Lejre</option>
+<option value="25.35 1.27 28.000">Lemvig</option>
+<option value="26.30 1.23 33.090">Lolland</option>
+<option value="24.38 0.61 21.490">Lyngby-Taarbæk</option>
+<option value="26.30 1.30 34.000">Læsø</option>
+<option value="25.90 1.15 34.000">Mariagerfjord</option>
+<option value="25.80 0.90 21.290">Middelfart</option>
+<option value="25.80 1.20 24.680">Morsø</option>
+<option value="26.10 1.00 34.000">Norddjurs</option>
+<option value="26.00 1.04 29.980">Nordfyns</option>
+<option value="26.30 1.00 27.830">Nyborg</option>
+<option value="25.00 0.98 25.000">Næstved</option>
+<option value="25.10 0.95 30.320">Odder</option>
+<option value="25.49 0.68 21.710">Odense</option>
+<option value="26.30 0.98 34.000">Odsherred</option>
+<option value="25.80 0.89 27.930">Randers</option>
+<option value="25.33 1.20 26.090">Rebild</option>
+<option value="25.00 1.05 31.000">Ringkøbing-Skjern</option>
+<option value="26.10 0.95 24.740">Ringsted</option>
+<option value="25.20 0.84 25.690">Roskilde</option>
+<option value="23.09 0.57 22.930">Rudersdal</option>
+<option value="25.70 0.72 30.800">Rødovre</option>
+<option value="25.90 1.22 30.750">Samsø</option>
+<option value="25.50 0.95 28.260">Silkeborg</option>
+<option value="25.94 0.86 24.660">Skanderborg</option>
+<option value="25.50 1.09 20.680">Skive</option>
+<option value="25.10 0.96 25.300">Slagelse</option>
+<option value="24.81 0.89 20.950">Solrød</option>
+<option value="26.30 0.95 25.740">Sorø</option>
+<option value="26.00 1.10 21.520">Stevns</option>
+<option value="25.30 1.20 22.900">Struer</option>
+<option value="26.30 1.02 23.320">Svendborg</option>
+<option value="25.90 1.00 33.800">Syddjurs</option>
+<option value="25.70 0.91 27.100">Sønderborg</option>
+<option value="25.50 1.27 23.750">Thisted</option>
+<option value="25.30 1.16 21.240">Tønder</option>
+<option value="23.10 0.61 24.000">Tårnby</option>
+<option value="25.60 0.80 24.380">Vallensbæk</option>
+<option value="25.10 0.95 31.560">Varde</option>
+<option value="25.20 1.06 20.360">Vejen</option>
+<option value="23.40 0.89 27.750">Vejle</option>
+<option value="26.30 1.18 22.820">Vesthimmerland</option>
+<option value="25.50 0.93 23.700">Viborg</option>
+<option value="25.20 1.02 32.320">Vordingborg</option>
+<option value="26.10 1.07 30.000">Ærø</option>
+<option value="25.60 0.95 18.900">Aabenraa</option>
+<option value="25.40 0.98 26.950">Aalborg</option>
+<option value="24.52 0.74 24.580">Aarhus</option>
+</select>
+</td>
+<td></td>
+<td></td>
+</tr>
+
+<tr bgcolor="white">
+  	<td>Sommerhus erhvervet senest 1. juli 1998 ?</td>
+	<td></td>
+	<td></td>
+	<td></td>
+ 	<td><input type="Radio" name="senestJuli1998Sommerhus">&nbsp;ja&nbsp;<input type="Radio" name="senestJuli1998Sommerhus" checked="">&nbsp;nej&nbsp;</td>
+	<td></td>
+	<td></td>
+</tr>
+
+<tr bgcolor="white">
+  	<td>Grundværdi sommerhus</td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td><input type="Text" name="angivetGrundvaerdiSommerhus" onkeypress="return onlyNumbers(event);" class="hoejre"></td>
+	<td></td>
+	<td></td>
+</tr>
+
+<tr bgcolor="white">
+	<td>Bidrag og præmie til <i>arbejdsgiveradministreret</i> pension med løbende udbetalinger og ratepension</td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td><input type="Text" name="MrateArbejdsgiveradm" onkeypress="return onlyNumbers(event);" class="hoejre"></td>
+	<td></td>
+	<td><input type="Text" name="KrateArbejdsgiveradm" onkeypress="return onlyNumbers(event);" class="hoejre"></td>
+</tr>
+
+<tr bgcolor="white"><td height="8" colspan="7"></td></tr>
+
+<tr bgcolor="white">
+	<td class="overskrift2" colspan="7"><b>2. Indkomst og fradrag i 2023</b></td>
+</tr>
+
+<tr bgcolor="white">
+	<td></td>
+	<td width="4"></td>
+	<td></td>
+	<td width="4"></td>
+	<td><b><u>Skatteyder</u></b></td>
+	<td width="3"></td>
+	<td><b><u>Ægtefælle</u></b></td>
+</tr>
+
+<tr bgcolor="white">
+	<td><b>Personlig indkomst</b></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+
+<tr bgcolor="white">
+	<td>Løn, honorarer mv. (helårsindkomst før fradrag af AMB)</td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td><input type="Text" name="MloenFoerAMB1" onkeypress="return onlyNumbers(event);" class="hoejre"></td>
+	<td></td>
+	<td><input type="Text" name="KloenFoerAMB1" onkeypress="return onlyNumbers(event);" class="hoejre"></td>
+</tr>
+
+<tr bgcolor="white">
+	<td>- reduceres med arbejdsmarkedsbidrag (AMB)</td>
+	<td></td>
+	<td></td>
+	<td>-</td>
+	<td><input type="Text" name="MAMB1" value="bliver beregnet" onkeypress="return noInput(event);" class="hoejre"></td>
+	<td>-</td>
+	<td><input type="Text" name="KAMB1" value="bliver beregnet" onkeypress="return noInput(event);" class="hoejre"></td>
+</tr>
+
+<tr bgcolor="white">
+	<td>Pensioner, dagpenge mv. og SU samt anden personlig indkomst, hvoraf der ikke skal betales AMB</td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td><input type="Text" name="MandenPersonlig" onkeypress="return onlyNumbers(event);" class="hoejre"></td>
+	<td></td>
+	<td><input type="Text" name="KandenPersonlig" onkeypress="return onlyNumbers(event);" class="hoejre"></td>
+</tr>
+
+<tr bgcolor="white">
+	<td>Indskud på <i>privattegnet</i> kapitalpension</td>
+	<td></td>
+	<td></td>
+	<td>-</td>
+	<td><input type="Text" name="Mkapital" onkeypress="return onlyNumbers(event);" class="hoejre"></td>
+	<td>-</td>
+	<td><input type="Text" name="Kkapital" onkeypress="return onlyNumbers(event);" class="hoejre"></td>
+</tr>
+
+<tr bgcolor="white">
+	<td>Bidrag og præmie til <i>privattegnet</i> pension med løbende udbetalinger og ratepension</td>
+	<td></td>
+	<td></td>
+	<td>-</td>
+	<td><input type="Text" name="Mrate" onkeypress="return onlyNumbers(event);" class="hoejre"></td>
+	<td>-</td>
+	<td><input type="Text" name="Krate" onkeypress="return onlyNumbers(event);" class="hoejre"></td>
+</tr>
+
+<tr bgcolor="white">
+	<td><font color="#FF0000">Personlig indkomst i alt</font></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td><input type="Text" name="MpersonligIndkomst" value="bliver beregnet" onkeypress="return noInput(event);" class="hoejre"></td>
+	<td></td>
+	<td><input type="Text" name="KpersonligIndkomst" value="bliver beregnet" onkeypress="return noInput(event);" class="hoejre"></td>
+</tr>
+
+<tr bgcolor="white"><td height="8" colspan="7"></td></tr>
+
+<tr bgcolor="white">
+	<td>Eget og arbejdsgivers indskud på <i>arbejdsgiveradministreret</i> kapitalpension (efter fradrag af AMB)</td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td><input type="Text" name="MarbejdsgiverIndskudKapitalpension" onkeypress="return onlyNumbers(event);" class="hoejre"></td>
+	<td></td>
+	<td><input type="Text" name="KarbejdsgiverIndskudKapitalpension" onkeypress="return onlyNumbers(event);" class="hoejre"></td>
+</tr>
+
+<tr bgcolor="white"><td height="8" colspan="7"></td></tr>
+
+<tr bgcolor="white">
+	<td><b>Kapitalindkomst</b></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+
+<tr bgcolor="white">
+	<td>Renteindtægter</td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td><input type="Text" name="Mrenteind" onkeypress="return onlyNumbers(event);" class="hoejre"></td>
+	<td></td>
+	<td><input type="Text" name="Krenteind" onkeypress="return onlyNumbers(event);" class="hoejre"></td>
+</tr>
+
+<tr bgcolor="white">
+	<td>Anden kapitalindkomst</td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td><input type="Text" name="MandenKapital" onkeypress="return onlyNumbers(event);" class="hoejre"></td>
+	<td></td>
+	<td><input type="Text" name="KandenKapital" onkeypress="return onlyNumbers(event);" class="hoejre"></td>
+</tr>
+
+<tr bgcolor="white">
+	<td>Renteudgifter</td>
+	<td></td>
+	<td></td>
+	<td>-</td>
+	<td><input type="Text" name="Mrenteud" onkeypress="return onlyNumbers(event);" class="hoejre"></td>
+	<td>-</td>
+	<td><input type="Text" name="Krenteud" onkeypress="return onlyNumbers(event);" class="hoejre"></td>
+</tr>
+
+<tr bgcolor="white">
+	<td><font color="#FF0000">Kapitalindkomst i alt</font></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td><input type="Text" name="Mkapitalindkomst" value="bliver beregnet" onkeypress="return noInput(event);" class="hoejre"></td>
+	<td></td>
+	<td><input type="Text" name="Kkapitalindkomst" value="bliver beregnet" onkeypress="return noInput(event);" class="hoejre"></td>
+</tr>
+
+<tr bgcolor="white"><td height="8" colspan="7"></td></tr>
+
+<tr bgcolor="white">
+	<td><b>Ligningsmæssige fradrag</b></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+
+<tr bgcolor="white">
+	<td>Befordring</td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td><input type="Text" name="Mbefordring" onkeypress="return onlyNumbers(event);" class="hoejre"></td>
+	<td></td>
+	<td><input type="Text" name="Kbefordring" onkeypress="return onlyNumbers(event);" class="hoejre"></td>
+</tr>
+
+<tr bgcolor="white">
+	<td>Arbejdsløshedsforsikring og fagligt kontingent</td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td><input type="Text" name="Mfagligt" onkeypress="return onlyNumbers(event);" class="hoejre"></td>
+	<td></td>
+	<td><input type="Text" name="Kfagligt" onkeypress="return onlyNumbers(event);" class="hoejre"></td>
+</tr>
+
+<tr bgcolor="white">
+	<td>Øvrige lønmodtagerudgifter over <input type="Text" name="bundgraenseLoenmodtagerfradrag" size="5" class="hoejre" onkeypress="return noInput(event);"></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td><input type="Text" name="MoevrigeLoenmodtagerudgifter" onkeypress="return onlyNumbers(event);" class="hoejre"></td>
+	<td></td>
+	<td><input type="Text" name="KoevrigeLoenmodtagerudgifter" onkeypress="return onlyNumbers(event);" class="hoejre"></td>
+</tr>
+
+<tr bgcolor="white">
+	<td>Underholdsbidrag til tidligere ægtefælle og børnebidrag</td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td><input type="Text" name="Maegtefaellebidrag" onkeypress="return onlyNumbers(event);" class="hoejre"></td>
+	<td></td>
+	<td><input type="Text" name="Kaegtefaellebidrag" onkeypress="return onlyNumbers(event);" class="hoejre"></td>
+</tr>
+
+<tr bgcolor="white">
+	<td>Andre ligningsmæssig fradrag</td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td><input type="Text" name="MandreLignings" onkeypress="return onlyNumbers(event);" class="hoejre"></td>
+	<td></td>
+	<td><input type="Text" name="KandreLignings" onkeypress="return onlyNumbers(event);" class="hoejre"></td>
+</tr>
+
+<tr bgcolor="white">
+	<td>Beskæftigelsesfradrag</td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td><input type="Text" name="Mbeskaeftigelsesfradrag" value="bliver beregnet" onkeypress="return noInput(event);" class="hoejre"></td>
+	<td></td>
+	<td><input type="Text" name="Kbeskaeftigelsesfradrag" value="bliver beregnet" onkeypress="return noInput(event);" class="hoejre"></td>
+</tr>
+
+<tr bgcolor="white">
+	<td>Jobfradrag</td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td><input type="Text" name="Mjobfradrag" value="bliver beregnet" onkeypress="return noInput(event);" class="hoejre"></td>
+	<td></td>
+	<td><input type="Text" name="Kjobfradrag" value="bliver beregnet" onkeypress="return noInput(event);" class="hoejre"></td>
+</tr>
+
+<tr bgcolor="white">
+	<td>Ekstra pensionsfradrag</td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td><input type="Text" name="MekstraPensionsfradrag" value="bliver beregnet" onkeypress="return noInput(event);" class="hoejre"></td>
+	<td></td>
+	<td><input type="Text" name="KekstraPensionsfradrag" value="bliver beregnet" onkeypress="return noInput(event);" class="hoejre"></td>
+</tr>
+
+<tr bgcolor="white">
+	<td><font color="#FF0000">Ligningsmæssige fradrag i alt</font></td>
+	<td></td>
+	<td></td>
+	<td>-</td>
+	<td><input type="Text" name="MligningsmaessigeFradrag" value="bliver beregnet" onkeypress="return noInput(event);" class="hoejre"></td>
+	<td>-</td>
+	<td><input type="Text" name="KligningsmaessigeFradrag" value="bliver beregnet" onkeypress="return noInput(event);" class="hoejre"></td>
+</tr>
+
+<tr bgcolor="white"><td height="8" colspan="7"></td></tr>
+
+<tr bgcolor="white">
+	<td><b>Skattepligtig indkomst i alt</b></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td><input type="Text" name="MskattepligtigIndkomst" value="bliver beregnet" onkeypress="return noInput(event);" class="hoejre"></td>
+	<td></td>
+	<td><input type="Text" name="KskattepligtigIndkomst" value="bliver beregnet" onkeypress="return noInput(event);" class="hoejre"></td>
+</tr>
+
+<tr bgcolor="white"><td height="8" colspan="7"></td></tr>
+
+<tr bgcolor="white">
+	<td><b>Aktieindkomst</b></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<tr bgcolor="white">
+	<td>Udbytte af aktier, hvoraf der er indeholdt 27% udbytteskat (beløb før indeholdelse af udbytteskat)</td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td><input type="Text" name="M61" onkeypress="return onlyNumbers(event);" class="hoejre"></td>
+	<td></td>
+	<td><input type="Text" name="K61" onkeypress="return onlyNumbers(event);" class="hoejre"></td>
+</tr>
+
+<tr bgcolor="white">
+	<td>Udbytte af aktier, hvoraf der ikke er indeholdt 27% udbytteskat, samt gevinst/tab på aktier. Et evt. negativt beløb angives med minus</td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td><input type="Text" name="M64" class="hoejre" onkeypress="return onlyPositiveAndNegativeNumbers(event);"></td>
+	<td></td>
+	<td><input type="Text" name="K64" class="hoejre" onkeypress="return onlyPositiveAndNegativeNumbers(event);"></td>
+</tr>
+
+<tr bgcolor="white">
+	<td><font color="#FF0000">Aktieindkomst i alt</font></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td><input type="Text" name="Maktieindkomst" value="bliver beregnet" class="hoejre" onkeypress="return noInput(event);"></td>
+	<td></td>
+	<td><input type="Text" name="Kaktieindkomst" value="bliver beregnet" class="hoejre" onkeypress="return noInput(event);"></td>
+</tr>
+
+<tr bgcolor="white"><td height="20" colspan="7"></td></tr>
+
+<tr bgcolor="white">
+<!-- Start: Beregningsknap -->
+	<td colspan="7" align="center"><input type="button" value="Beregn skat !" onclick="indkomstopgoerelse(this.form); skatteberegning(this.form);"></td>
+<!-- Slut: Beregningsknap -->
+</tr>
+
+<tr bgcolor="white">
+<td colspan="7" height="2"></td>
+</tr>
+
+<!-- ** SKATTEBEREGNING ** -->
+<tr bgcolor="white">
+	<td class="overskrift2" colspan="7"><b>3. Indkomstskat</b></td>
+</tr>
+
+<tr bgcolor="white"><td height="8" colspan="7"></td></tr>
+
+<tr bgcolor="white">
+	<td><b>Kommunal skat, sundhedsbidrag og kirkeskat</b></td>
+  	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+   	<td></td>
+   	<td></td>
+</tr>
+
+<tr bgcolor="white">
+	<td>Skattepligtig indkomst</td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td><input type="Text" name="MskattepligtigIndkomstKomm" class="hoejre" onkeypress="return noInput(event);"></td>
+	<td></td>
+   	<td><input type="Text" name="KskattepligtigIndkomstKomm" class="hoejre" onkeypress="return noInput(event);"></td>
+</tr>
+
+<tr bgcolor="white">
+   <td>Personfradrag</td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td><input type="Text" name="MpersonfradragKomm" class="hoejre" onkeypress="return noInput(event);"></td>
+	<td></td>
+	<td><input type="Text" name="KpersonfradragKomm" class="hoejre" onkeypress="return noInput(event);"></td>
+</tr>
+
+<tr bgcolor="white">
+	<td><font color="#FF0000">Beregningsgrundlag</font></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td><input type="Text" name="MberegningsgrundlagKomm" class="hoejre" onkeypress="return noInput(event);"></td>
+	<td></td>
+	<td><input type="Text" name="KberegningsgrundlagKomm" class="hoejre" onkeypress="return noInput(event);"></td>
+</tr>
+
+<tr bgcolor="white">
+	<td><input type="Text" name="MkommSkatprc" size="5" class="hoejre" onkeypress="return noInput(event);">/<input type="Text" name="KkommSkatprc" size="5" onkeypress="return noInput(event);"> % af beregningsgrundlag</td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td><input type="Text" name="MkommSkat" class="hoejre" onkeypress="return noInput(event);"></td>
+	<td></td>
+	<td><input type="Text" name="KkommSkat" class="hoejre" onkeypress="return noInput(event);"></td>
+</tr>
+
+<tr bgcolor="white">
+	<td>I alt</td>
+	<td></td>
+	<td></td>
+	<td></td>
+   	<td><input type="Text" name="kommSkatIalt" class="hoejre" onkeypress="return noInput(event);"></td>
+	<td></td>
+   	<td></td>
+</tr>
+
+<tr bgcolor="white"><td height="8" colspan="7"></td></tr>
+
+<tr bgcolor="white">
+	<td><b>Bundskat</b></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+
+<tr bgcolor="white">
+	<td>Personlig indkomst</td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td><input type="Text" name="MpersonligIndkomstBund" class="hoejre" onkeypress="return noInput(event);"></td>
+	<td></td>
+	<td><input type="Text" name="KpersonligIndkomstBund" class="hoejre" onkeypress="return noInput(event);"></td>
+</tr>
+
+<tr bgcolor="white">
+	<td>Positiv nettokapitalindkomst</td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td><input type="Text" name="MpositivKapitalindkomstBund" class="hoejre" onkeypress="return noInput(event);"></td>
+	<td></td>
+	<td><input type="Text" name="KpositivKapitalindkomstBund" class="hoejre" onkeypress="return noInput(event);"></td>
+</tr>
+
+<tr bgcolor="white">
+	<td>Personfradrag</td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td><input type="Text" name="MpersonfradragBund" class="hoejre" onkeypress="return noInput(event);"></td>
+	<td></td>
+	<td><input type="Text" name="KpersonfradragBund" class="hoejre" onkeypress="return noInput(event);"></td>
+</tr>
+
+<tr bgcolor="white">
+	<td><font color="#FF0000">Beregningsgrundlag</font></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td><input type="Text" name="MberegningsgrundlagBund" class="hoejre" onkeypress="return noInput(event);"></td>
+	<td></td>
+	<td><input type="Text" name="KberegningsgrundlagBund" class="hoejre" onkeypress="return noInput(event);"></td>
+</tr>
+
+<tr bgcolor="white">
+	<td><input type="Text" name="bundskatprc" size="4" class="hoejre" onkeypress="return noInput(event);"> % af beregningsgrundlag</td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td><input type="Text" name="Mbundskat" class="hoejre" onkeypress="return noInput(event);"></td>
+	<td></td>
+	<td><input type="Text" name="Kbundskat" class="hoejre" onkeypress="return noInput(event);"></td>
+</tr>
+
+<tr bgcolor="white">
+	<td>I alt</td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td><input type="Text" name="bundskatIalt" class="hoejre" onkeypress="return noInput(event);"></td>
+	<td></td>
+	<td></td>
+</tr>
+
+<tr bgcolor="white"><td height="8" colspan="7"></td></tr>
+
+<tr bgcolor="white">
+	<td><b>Topskat</b></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+
+<tr bgcolor="white">
+	<td>Personlig indkomst</td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td><input type="Text" name="MpersonligIndkomstTop" class="hoejre" onkeypress="return noInput(event);"></td>
+	<td></td>
+	<td><input type="Text" name="KpersonligIndkomstTop" class="hoejre" onkeypress="return noInput(event);"></td>
+</tr>
+
+<tr bgcolor="white">
+	<td>Indskud på privattegnet kapitalpension</td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td><input type="Text" name="MindskudKapitalpension" class="hoejre" onkeypress="return noInput(event);"></td>
+	<td></td>
+	<td><input type="Text" name="KindskudKapitalpension" class="hoejre" onkeypress="return noInput(event);"></td>
+</tr>
+
+<tr bgcolor="white">
+	<td>Indskud på arbejdsgiveradm. kapitalpension</td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td><input type="Text" name="MarbejdsgiverIndskudKapitalpension1" class="hoejre" onkeypress="return noInput(event);"></td>
+	<td></td>
+	<td><input type="Text" name="KarbejdsgiverIndskudKapitalpension1" class="hoejre" onkeypress="return noInput(event);"></td>
+</tr>
+
+<tr bgcolor="white">
+	<td>Bundgrænse</td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td><input type="Text" name="topskatgraense1" class="hoejre" onkeypress="return noInput(event);"></td>
+	<td></td>
+	<td><input type="Text" name="topskatgraense2" class="hoejre" onkeypress="return noInput(event);"></td>
+</tr>
+
+<tr bgcolor="white">
+	<td><font color="#FF0000">Beregningsgrundlag</font></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td><input type="Text" name="MberegningsgrundlagTop_personlig_indkomst" class="hoejre" onkeypress="return noInput(event);"></td>
+	<td></td>
+	<td><input type="Text" name="KberegningsgrundlagTop_personlig_indkomst" class="hoejre" onkeypress="return noInput(event);"></td>
+</tr>
+
+<tr bgcolor="white">
+	<td><input type="Text" name="topskatprc_personlig_indkomst" size="4" class="hoejre" onkeypress="return noInput(event);"> % af beregningsgrundlag</td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td><input type="Text" name="Mtopskat_personlig_indkomst" class="hoejre" onkeypress="return noInput(event);"></td>
+	<td></td>
+	<td><input type="Text" name="Ktopskat_personlig_indkomst" class="hoejre" onkeypress="return noInput(event);"></td>
+</tr>
+
+<tr bgcolor="white">
+	<td><i>Topskat af personlig indkomst og kapitalpensionsindskud</i></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td><input type="Text" name="topskatIalt_personlig_indkomst" class="hoejre" onkeypress="return noInput(event);"></td>
+	<td></td>
+	<td></td>
+</tr>
+
+<tr bgcolor="white"><td height="4" colspan="7"></td></tr>
+
+<tr bgcolor="white">
+	<td>Positiv nettokapitalindkomst over <input type="Text" name="bundfradrag_positiv_nettokapitalindkomst" size="5" class="hoejre" onkeypress="return noInput(event);"></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td><input type="Text" name="MpositivKapitalindkomstTop" class="hoejre" onkeypress="return noInput(event);"></td>
+	<td></td>
+	<td><input type="Text" name="KpositivKapitalindkomstTop" class="hoejre" onkeypress="return noInput(event);"></td>
+</tr>
+
+<tr bgcolor="white">
+	<td>Bundgrænse</td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td><input type="Text" name="topskatgraense3" class="hoejre" onkeypress="return noInput(event);"></td>
+	<td></td>
+	<td><input type="Text" name="topskatgraense4" class="hoejre" onkeypress="return noInput(event);"></td>
+</tr>
+
+<tr bgcolor="white">
+	<td><font color="#FF0000">Beregningsgrundlag</font></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td><input type="Text" name="MberegningsgrundlagTop_positivkapitalindkomst" class="hoejre" onkeypress="return noInput(event);"></td>
+	<td></td>
+	<td><input type="Text" name="KberegningsgrundlagTop_positivkapitalindkomst" class="hoejre" onkeypress="return noInput(event);"></td>
+</tr>
+
+<tr bgcolor="white">
+	<td><input type="Text" name="topskatprc_positivkapitalindkomst" size="4" class="hoejre" onkeypress="return noInput(event);"> % af beregningsgrundlag</td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td><input type="Text" name="Mtopskat_positivkapitalindkomst" class="hoejre" onkeypress="return noInput(event);"></td>
+	<td></td>
+	<td><input type="Text" name="Ktopskat_positivkapitalindkomst" class="hoejre" onkeypress="return noInput(event);"></td>
+</tr>
+
+<tr bgcolor="white">
+	<td><i>Topskat af positiv nettokapitalindkomst</i></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td><input type="Text" name="topskatIalt_positivkapitalindkomst" class="hoejre" onkeypress="return noInput(event);"></td>
+	<td></td>
+	<td></td>
+</tr>
+
+<tr bgcolor="white"><td height="4" colspan="7"></td></tr>
+
+<tr bgcolor="white">
+	<td>I alt</td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td><input type="Text" name="topskatIalt" class="hoejre" onkeypress="return noInput(event);"></td>
+	<td></td>
+	<td></td>
+</tr>
+
+<tr bgcolor="white"><td height="8" colspan="7"></td></tr>
+
+<tr bgcolor="white">
+	<td><b>Aktieskat</b></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<tr bgcolor="white">
+	<td>Aktieindkomst</td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td><input type="Text" name="Maktieindkomst1" class="hoejre" onkeypress="return noInput(event);"></td>
+	<td></td>
+	<td><input type="Text" name="Kaktieindkomst1" class="hoejre" onkeypress="return noInput(event);"></td>
+</tr>
+
+<tr bgcolor="white">
+	<td>I alt</td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td><input type="Text" name="samletAktieindkomst" class="hoejre" onkeypress="return noInput(event);"></td>
+	<td></td>
+	<td></td>
+</tr>
+
+<tr bgcolor="white">
+	<td>Progressionsgrænse <input type="Text" name="Maktiegraense" size="6" class="hoejre" onkeypress="return noInput(event);"> + <input type="Text" name="Kaktiegraense" size="6" class="hoejre" onkeypress="return noInput(event);"></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td><input type="Text" name="samletProgressionsgraense" class="hoejre" onkeypress="return noInput(event);"></td>
+	<td></td>
+	<td></td>
+</tr>
+
+<tr bgcolor="white">
+	<td><font color="#FF0000">Beregningsgrundlag indtil grænse</font></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td><input type="Text" name="aktieindkomstUnderGraense" class="hoejre" onkeypress="return noInput(event);"></td>
+	<td></td>
+	<td></td>
+</tr>
+
+<tr bgcolor="white">
+	<td><font color="#FF0000">Beregningsgrundlag over grænse</font></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td><input type="Text" name="aktieindkomstOverGraense" class="hoejre" onkeypress="return noInput(event);"></td>
+	<td></td>
+	<td></td>
+</tr>
+
+<tr bgcolor="white">
+	<td><input type="Text" name="aktieskatprcUnderGraense" size="4" class="hoejre" onkeypress="return noInput(event);"> % af beregningsgrundlag indtil grænse</td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td><input type="Text" name="aktieskatUnderGraense" class="hoejre" onkeypress="return noInput(event);"></td>
+	<td></td>
+	<td></td>
+</tr>
+
+<tr bgcolor="white">
+	<td><input type="Text" name="aktieskatprcOverGraense" size="4" class="hoejre" onkeypress="return noInput(event);"> % af beregningsgrundlag over grænse</td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td><input type="Text" name="aktieskatOverGraense" class="hoejre" onkeypress="return noInput(event);"></td>
+	<td></td>
+	<td></td>
+</tr>
+
+<tr bgcolor="white">
+	<td>I alt</td>
+	<td></td>	
+	<td></td>
+	<td></td>
+	<td><input type="Text" name="aktieskatIalt" class="hoejre" onkeypress="return noInput(event);"></td>
+	<td></td>
+   	<td></td>
+</tr>
+
+<tr bgcolor="white"><td height="8" colspan="7"></td></tr>
+
+<tr bgcolor="white">
+	<td><b>Arbejdsmarkedsbidrag (AMB)</b></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+
+<tr bgcolor="white">
+	<td>Løn, honorarer mv. (før fradrag af AMB)</td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td><input type="Text" name="MloenFoerAMB" class="hoejre" onkeypress="return noInput(event);"></td>
+	<td></td>
+	<td><input type="Text" name="KloenFoerAMB" class="hoejre" onkeypress="return noInput(event);"></td>
+</tr>
+
+<tr bgcolor="white">
+	<td><font color="#FF0000">Beregningsgrundlag</font></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td><input type="Text" name="MberegningsgrundlagAMB" class="hoejre" onkeypress="return noInput(event);"></td>
+	<td></td>
+	<td><input type="Text" name="KberegningsgrundlagAMB" class="hoejre" onkeypress="return noInput(event);"></td>
+</tr>
+
+<tr bgcolor="white">
+	<td><input type="Text" name="AMBATPprc" size="4" class="hoejre" onkeypress="return noInput(event);"> % af beregningsgrundlag</td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td><input type="Text" name="MAMB" class="hoejre" onkeypress="return noInput(event);"></td>
+	<td></td>
+	<td><input type="Text" name="KAMB" class="hoejre" onkeypress="return noInput(event);"></td>
+</tr>
+
+<tr bgcolor="white">
+	<td>I alt</td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td><input type="Text" name="AMBIalt" class="hoejre" onkeypress="return noInput(event);"></td>
+	<td></td>
+	<td></td>
+</tr>
+
+<!-- ** Start: Ny 2012 ****** -->
+
+<tr bgcolor="white"><td height="8" colspan="7"></td></tr>
+
+<tr bgcolor="white">
+	<td><b>Nedslag for negativ nettokapitalindkomst under 50.000 kr.</b></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+
+<tr bgcolor="white">
+	<td>Nettokapitalindkomst</td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td><input type="Text" name="Mkapitalindkomst_nedslag" class="hoejre" onkeypress="return noInput(event);"></td>
+	<td></td>
+	<td><input type="Text" name="Kkapitalindkomst_nedslag" class="hoejre" onkeypress="return noInput(event);"></td>
+</tr>
+
+<tr bgcolor="white">
+	<td><font color="#FF0000">Beregningsgrundlag</font></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td><input type="Text" name="SamletNegativKapitalindkomst_nedslag" class="hoejre" onkeypress="return noInput(event);"></td>
+	<td></td>
+	<td></td>
+</tr>
+
+<tr bgcolor="white">
+	<td><input type="Text" name="nedslagNegativNettokapitalindkomstprc" size="4" class="hoejre" onkeypress="return noInput(event);"> % af beregningsgrundlag</td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td><input type="Text" name="NedslagNegativKapitalindkomst" class="hoejre" onkeypress="return noInput(event);"></td>
+	<td></td>
+	<td></td>
+</tr>
+
+<tr bgcolor="white">
+	<td>I alt</td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td><input type="Text" name="IaltNedslagNegativKapitalindkomst" class="hoejre" onkeypress="return noInput(event);"></td>
+	<td></td>
+	<td></td>
+</tr>
+
+<!-- ** Slut: Ny 2012 ****** -->
+
+<tr bgcolor="white"><td height="8" colspan="7"></td></tr>
+
+<tr bgcolor="white">
+	<td><b>Indkomstskat i alt</b> (grøn check er ikke fratrukket)</td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td><input type="Text" name="skatIalt" class="hoejre" onkeypress="return noInput(event);"></td>
+	<td></td>
+	<td></td>
+</tr>
+
+<tr bgcolor="white">
+<td colspan="7" height="2"></td>
+</tr>
+
+<tr bgcolor="white">
+	<td class="overskrift2" colspan="7"><b>4. Skat af fast ejendom</b></td>
+</tr>
+
+<tr bgcolor="white"><td height="8" colspan="7"></td></tr>
+
+<tr bgcolor="white">
+	<td><b>Ejendomsværdiskat</b></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+
+<tr bgcolor="white">
+	<td><font color="#FF0000">Ejendomsværdi enfamiliehus/ejerlejlighed</font></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td><input type="Text" name="ejendomsvaerdi" class="hoejre" onkeypress="return noInput(event);"></td>
+	<td></td>
+	<td></td>
+</tr>
+
+<tr bgcolor="white">
+	<td><input type="Text" name="ejendomsvaerdiskatprcUnder1" size="4" class="hoejre" onkeypress="return noInput(event);"> % af ejendomsværdi indtil <input type="Text" name="ejendomsvaerdigraense1" size="9" class="hoejre" onkeypress="return noInput(event);"> kr.</td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td><input type="Text" name="ejendomsvaerdiskatUnder" class="hoejre" onkeypress="return noInput(event);"></td>
+	<td></td>
+	<td></td>
+</tr>
+
+<tr bgcolor="white">
+	<td><input type="Text" name="ejendomsvaerdiskatprcOver1" size="4" class="hoejre" onkeypress="return noInput(event);"> % af ejendomsværdi over <input type="Text" name="ejendomsvaerdigraense2" size="9" class="hoejre" onkeypress="return noInput(event);"> kr.</td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td><input type="Text" name="ejendomsvaerdiskatOver" class="hoejre" onkeypress="return noInput(event);"></td>
+	<td></td>
+	<td></td>
+</tr>
+
+<tr bgcolor="white">
+	<td>Nedslag</td>
+	<td></td>
+	<td></td>
+	<td>-</td>
+	<td><input type="Text" name="nedslag" class="hoejre" onkeypress="return noInput(event);"></td>
+	<td></td>
+	<td></td>
+</tr>
+
+<tr bgcolor="white">
+	<td>Ejendomsværdiskat enfamiliehus/ejerlejlighed</td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td><input type="Text" name="ejendomsvaerdiskatHelaarsbolig" class="hoejre" onkeypress="return noInput(event);"></td>
+	<td></td>
+	<td></td>
+</tr>
+
+<tr bgcolor="white"><td height="8" colspan="7"></td></tr>
+
+<tr bgcolor="white">
+	<td><font color="#FF0000">Ejendomsværdi sommerhus</font></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td><input type="Text" name="ejendomsvaerdiSommerhus" class="hoejre" onkeypress="return noInput(event);"></td>
+	<td></td>
+	<td></td>
+</tr>
+
+<tr bgcolor="white">
+	<td><input type="Text" name="ejendomsvaerdiskatprcUnder2" size="4" class="hoejre" onkeypress="return noInput(event);"> % af ejendomsværdi indtil <input type="Text" name="ejendomsvaerdigraense1Sommerhus" size="9" class="hoejre" onkeypress="return noInput(event);"> kr.</td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td><input type="Text" name="ejendomsvaerdiskatUnderSommerhus" class="hoejre" onkeypress="return noInput(event);"></td>
+	<td></td>
+	<td></td>
+</tr>
+
+<tr bgcolor="white">
+	<td><input type="Text" name="ejendomsvaerdiskatprcOver2" size="4" class="hoejre" onkeypress="return noInput(event);"> % af ejendomsværdi over <input type="Text" name="ejendomsvaerdigraense2Sommerhus" size="9" class="hoejre" onkeypress="return noInput(event);"> kr.</td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td><input type="Text" name="ejendomsvaerdiskatOverSommerhus" class="hoejre" onkeypress="return noInput(event);"></td>
+	<td></td>
+	<td></td>
+</tr>
+
+<tr bgcolor="white">
+	<td>Nedslag</td>
+	<td></td>
+	<td></td>
+	<td>-</td>
+	<td><input type="Text" name="nedslagSommerhus" class="hoejre" onkeypress="return noInput(event);"></td>
+	<td></td>
+	<td></td>
+</tr>
+
+<tr bgcolor="white">
+	<td>Ejendomsværdiskat sommerhus</td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td><input type="Text" name="ejendomsvaerdiskatSommerhus" class="hoejre" onkeypress="return noInput(event);"></td>
+	<td></td>
+	<td></td>
+</tr>
+
+<tr bgcolor="white">
+	<td>I alt</td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td><input type="Text" name="ejendomsvaerdiskatIalt" class="hoejre" onkeypress="return noInput(event);"></td>
+	<td></td>
+	<td></td>
+</tr>
+
+<tr bgcolor="white"><td height="8" colspan="7"></td></tr>
+
+<tr bgcolor="white">
+	<td><b>Grundskyld (ejendomsskat)</b></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+
+<tr bgcolor="white">
+	<td><font color="#FF0000">Grundværdi enfamiliehus/ejerlejlighed</font></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td><input type="Text" name="grundvaerdi" class="hoejre" onkeypress="return noInput(event);"></td>
+	<td></td>
+	<td></td>
+</tr>
+
+<tr bgcolor="white">
+	<td><input type="Text" name="grundskyldpromille" size="5" class="hoejre" onkeypress="return noInput(event);"> promille af grundværdi</td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td><input type="Text" name="grundskyldHelaarsbolig" class="hoejre" onkeypress="return noInput(event);"></td>
+	<td></td>
+	<td></td>
+</tr>
+
+
+<tr bgcolor="white"><td height="8" colspan="7"></td></tr>
+
+<tr bgcolor="white">
+	<td><font color="#FF0000">Grundværdi sommerhus</font></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td><input type="Text" name="grundvaerdiSommerhus" class="hoejre" onkeypress="return noInput(event);"></td>
+	<td></td>
+	<td></td>
+</tr>
+
+
+<tr bgcolor="white">
+	<td><input type="Text" name="grundskyldpromilleSommerhus" size="5" class="hoejre" onkeypress="return noInput(event);"> promille af grundværdi</td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td><input type="Text" name="grundskyldSommerhus" class="hoejre" onkeypress="return noInput(event);"></td>
+	<td></td>
+	<td></td>
+</tr>
+
+<tr bgcolor="white">
+	<td>I alt</td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td><input type="Text" name="grundskyldIalt" class="hoejre" onkeypress="return noInput(event);"></td>
+	<td></td>
+	<td></td>
+</tr>
+
+<tr bgcolor="white"><td height="8" colspan="7"></td></tr>
+
+<tr bgcolor="white">
+	<td><b>Skat af fast ejendom i alt</b></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td><input type="Text" name="skatFastEjendomIalt" class="hoejre" onkeypress="return noInput(event);"></td>
+	<td></td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</form>
+
+<!-- start: Footer -->
+<table cellspacing="0" cellpadding="0" width="100%">
+<tbody><tr><td height="12"></td></tr>
+<tr>
+<td>
+	<div style="text-align: justify; ">
+		<strong>!</strong> Materialet på TAX.DK har alene til formål at informere generelt om udvalgte retsregler. Har du behov for at træffe beslutning om, hvorvidt - og i givet fald hvordan - du skal handle i et konkret tilfælde, bør du altid søge bistand hos en skatterådgiver eller anmode om et bindende svar fra SKAT.
+	</div>
+</td>
+</tr>
+</tbody></table>
+
+<!-- slut: Footer -->
+
+<script language="JavaScript" type="text/javascript">
+<!-- gem for gamle browsere
+	// Skriv bopælsår
+	document.skatteskema.bopaelsaar.value = 2000 + (indkomstaar - 1)
+	
+	document.skatteskema.ejendomsvaerdiskatprcUnder1.value = tilDanskHeltal(ejendomsvaerdiskatprcUnder)
+	document.skatteskema.ejendomsvaerdiskatprcUnder2.value = tilDanskHeltal(ejendomsvaerdiskatprcUnder)
+
+	document.skatteskema.ejendomsvaerdiskatprcOver1.value = tilDanskHeltal(ejendomsvaerdiskatprcOver)
+	document.skatteskema.ejendomsvaerdiskatprcOver2.value = tilDanskHeltal(ejendomsvaerdiskatprcOver)
+	
+	document.skatteskema.ejendomsvaerdigraense1.value = tilDanskHeltal(ejendomsvaerdigraense)
+	document.skatteskema.ejendomsvaerdigraense2.value = tilDanskHeltal(ejendomsvaerdigraense)
+	document.skatteskema.ejendomsvaerdigraense1Sommerhus.value = tilDanskHeltal(ejendomsvaerdigraense)
+	document.skatteskema.ejendomsvaerdigraense2Sommerhus.value = tilDanskHeltal(ejendomsvaerdigraense)
+	document.skatteskema.bundgraenseLoenmodtagerfradrag.value = tilDanskHeltal(bundgraenseLoenmodtagerfradrag)
+// slut gem for gamle browsere -->
+</script>
+
+
+
+</body></html>
